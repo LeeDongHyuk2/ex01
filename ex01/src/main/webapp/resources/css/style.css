@@ -1,0 +1,907 @@
+@charset "utf-8";
+/* 브라우저 초기화 */
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:13px;
+    line-height:20px;
+    color:#222;
+}
+ul, ol{
+    list-style:none;
+}
+img{
+    vertical-align: top;
+    border: 0;
+    width:100%;
+    height:auto;
+}
+a{
+    text-decoration: none;
+}
+fieldset{
+    border:0;
+}
+legend{
+    display: none;
+}
+.hide{
+    position:absolute;
+    top:-99999px;
+    left:-99999px;
+    display: block;
+    width:1px;
+    height:1px;
+    overflow: hidden;
+}
+
+
+
+/* 기본화면 - 모바일기준 */
+#wrap{
+    width:100%;
+    position:relative;
+}
+.pc{
+    display: none;
+}
+
+
+
+/* #header - 모바일 */
+
+.headerIn{
+    height:90px;
+    position:relative;
+    overflow: hidden;
+}
+.h_logo{
+    margin:0 auto;
+    width:100px;
+    height:50px;
+    background-color:red;
+}
+.gnb ul{
+    background-color: beige;
+    width:200%;
+    position:absolute;
+    bottom:0;
+    display: flex;
+    justify-content: space-between;
+}
+.gnb li a{
+    line-height:30px;
+    display: block;
+    padding:0 15px;
+    color:#222;
+}
+.mo_menu{
+    position:absolute;
+    left:15px;
+    bottom:40px;
+}
+.mo_menu a{
+    padding-top:7px;
+    padding-left:5px;
+    text-indent:-99999px;
+}
+.mo_menu a span{
+    display: block;
+    height:3px;
+    background-color: #444;
+    width:20px;
+    margin-top:5px;
+}
+.h_search{
+    position:absolute;
+    right:50px;
+    bottom:40px;
+}
+.h_search .search{
+    background-image: url(../img/icon_search.png);
+    border:none;
+    height:20px;
+    width:20px;
+    text-indent: -99999px;
+}
+.h_cart a{
+    display: block;
+    position:absolute;
+    right:15px;
+    bottom:40px;
+    text-indent: -99999px;
+    width:22px;
+    height:20px;
+    background-image: url(../img/icon_cart.png);
+}
+
+/* #header - 모바일 끝 */
+
+
+/* section1 .main_slide - 모바일 */
+.main_slide{
+    margin-bottom:60px;
+}
+.slick-prev, .slick-next{
+    position:absolute;
+    top:50%;
+    width:50px;
+    height:50px;
+    z-index:100;
+}
+.slick-prev{
+    left:10px;
+}
+.slick-next{
+    right:10px;
+}
+.slick-dots{
+    display: none;
+    position:absolute;
+    bottom:20px;
+}
+
+/* section1 .main_slide - 모바일 끝 */
+
+
+
+/* section2 .newList - 모바일 */
+.newList{
+    position:relative;
+    margin-bottom:40px;
+    padding:0 10px;
+}
+.newList h2{
+    margin:0 10px 30px 10px;
+}
+.newList ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.newList li{
+    width: 48%;
+    margin-bottom:20px;
+}
+.newList a{
+    color:#222;
+}
+.newList li img{
+    width:100%;
+    height:auto;
+}
+.new_more, .hot_more, .review_more{
+    position:absolute;
+    top:20px;
+    right:30px;
+}
+.new_more a, .hot_more a, .review_more a{
+    display: block;
+    padding-right:15px;
+    background-image: url(../img/icon_plus.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    color:#222;
+}
+/* section2 .newList - 모바일 끝 */
+
+
+
+/* section3 .hotList - 모바일 */
+.hotList{
+    position:relative;
+    margin-bottom:40px;
+    padding:0 10px;
+
+}
+.hotList h2{
+    margin:0 10px 30px 10px;
+}
+.hotList ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+}
+.hotList li{
+    width: 48%;
+    margin-bottom:20px;
+}
+.hotList a{
+    color:#222;
+}
+.hotList li img{
+    width:100%;
+    height:auto;
+}
+
+/* section3 .hotList - 모바일 끝 */
+
+
+
+/* section4 .sail - 모바일 */
+.sail{
+    margin-bottom:60px;
+    overflow-x: scroll;
+}
+.sail h2{
+    margin:0 20px 30px 20px;
+}
+.sail ul{
+    display: flex;
+    margin: 0 5px;
+    width:200%;
+}
+.sail li{
+    position:relative;
+    margin:15px;
+}
+.sail a{
+    color:#222;
+}
+.sail li img{
+    border:1px solid #222;
+}
+.sail li a::after{
+    content: "20%";
+    font-size:15px;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+    width:50px;
+    height:50px;
+    position:absolute;
+    right:-20px;
+    top:-20px;
+    background-color: rgb(255, 128, 9);
+    color : white;
+    font-weight:bold;
+    border-radius: 50%;
+}
+/* section4 .sail - 모바일 끝 */
+
+
+
+/* section5 .event - 모바일 */
+.event{
+    margin-bottom:60px;
+}
+.event h2{
+    margin:0 20px 30px 20px;
+}
+.event ul{
+    display: flex;
+}
+.event a{
+    color:#222;
+}
+.event_page{
+    background-color: beige;
+    height:200px;
+}
+.event_page a{
+    background-color: beige;
+    display: block;
+    width:100%;
+    height:100%;
+}
+.ev1{
+    width:33.33%;
+}
+.ev1 a{
+    background-color: rgb(173, 112, 36);
+    display: block;
+    width:100%;
+    height:100%;
+}
+.ev2{
+    width:33.33%;
+}
+.ev2 a{
+    background-color: rgb(136, 214, 34);
+    display: block;
+    width:100%;
+    height:100%;
+}
+.ev3{
+    width:33.33%;
+}
+.ev3 a{
+    background-color: rgb(216, 99, 115);
+    display: block;
+    width:100%;
+    height:100%;
+}
+/* section5 .event - 모바일 끝 */
+
+
+
+/* section6 .sns - 모바일 */
+.sns{
+    margin-bottom:30px;
+    overflow-x : scroll;
+    background-color:beige;
+    padding:30px 0;
+}
+.sns h2{
+    margin:0 20px 30px 20px;
+}
+.sns ul{
+    width:300%;
+    display: flex;
+    flex-wrap: wrap;
+    padding : 0 20px;
+}
+.sns li{
+    width:16.6%;
+    background-color: #fff;
+    position:relative;
+}
+.sns li a{
+    width:100%;
+    height:100%;
+    display: block;
+}
+.sns li a img{
+    width:100%;
+}
+.sns li a:hover img{
+    transform:(1.2);
+}
+.sns_img{
+    position:absolute;
+    top :0;
+    left:0;
+    width:100%;
+    height:100%;
+    box-shadow: inset 0 0 100px rgba(30,30,30,0.7);
+    background:rgba(0,0,0,0.5);
+    opacity:0;
+}
+
+/* section6 .sns - 모바일 끝
+
+
+
+/* section7 .review - 모바일 */
+.review{
+    margin-bottom:40px;
+    position:relative;
+}
+.review h2{
+    margin:0 20px 30px 20px;
+}
+.review ul{
+    margin:0 20px;
+}
+.review li{
+    margin-bottom:20px;
+}
+.review a{
+    color:#222;
+}
+/* section7 .review - 모바일 끝 */
+
+
+
+/* #footer - 모바일 */
+#footer{
+    background-color:#222;
+    color:white;
+}
+.footer_in{
+    padding :40px 0;
+    margin:0 20px;
+    position:relative;
+}
+.footer_in a{
+    color: white;
+}
+.footer_in p{
+    margin-bottom:20px;
+}
+.f_logo{
+    width:100px;
+    height:50px;
+    background-color: white;
+    color:black;
+    margin-bottom:20px;
+}
+.f_tell{
+    margin-bottom:20px;
+}
+.f_sns ul{
+    display: flex;    
+    position:absolute;
+    right:0;
+    top:40px;
+    flex-wrap: wrap;
+    width:50%;
+}
+.f_sns ul li{
+    margin-left:10px;
+    margin-bottom:10px;
+}
+.f_sns ul li a{
+    display: block;
+    background-image:url(../img/sns_icon.png);
+    text-indent:-99999px;
+    width:32px;
+    height:32px;
+    background-size:200px;
+}
+.f_sns .fb a{
+    background-position:-2px -4px;
+}
+.f_sns .insta a{
+    background-position:-42px -4px;
+}
+.f_sns .youtube a{
+    background-position:-82px -4px;
+}
+.f_sns .blog a{
+    background-position:-124px -4px;
+}
+.f_sns .twit a{
+    background-position:-162px -4px;
+}
+/* #footer - 모바일 끝 */
+
+
+/* #side - 모바일 */
+#side{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:-100%;
+    background-color:#fff;
+    z-index:999;
+    overflow-y:scroll;
+}
+.s_login{
+    background-color:chocolate;
+    height:60px;
+    font-weight:bold;
+}
+.s_login a{
+    display: block;
+    color:#fff;
+    padding-left : 30px;
+    font-size:16px;
+    line-height:60px;
+}
+.s_m1{
+    border-bottom:1px solid #bbb;
+}
+.s_m1 a{
+    display: block;
+    padding:15px;
+    font-size:15px;
+    color:chocolate;
+}
+.s_close{
+    position:absolute;
+    top:0;
+    right:0;
+}
+.s_close a{
+    display: block;
+    width:60px;
+    height:60px;
+    text-indent: -99999px;
+    background-image:url(../img/close2.png);
+    background-size: 25px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* #side - 모바일 끝 */
+
+
+/* 모바일화면 - 끝 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 태블릿화면 - (768px)기준 */
+@media screen and (min-width:768px){
+
+/* #header - 태블릿 */
+.gnb ul{
+    width:100%;
+
+}
+.gnb li a{
+    line-height:30px;
+    display: block;
+    padding:0 15px;
+    color:#222;
+}
+/* #header - 태블릿 끝 */
+
+
+/* section1 .main_slide - 태블릿 */
+
+
+/* section1 .main_slide - 태블릿 끝 */
+
+
+
+/* section2 .newList - 태블릿 */
+.newList{
+    padding:0 10px;
+}
+.newList h2{
+    margin: 0 10px 30px 10px;
+}
+.newList ul{
+    width:100%;
+    flex-wrap: nowrap;
+    padding:0;
+}
+.newList ul li{
+    margin:0 10px;
+}
+
+/* section2 .newList - 태블릿 끝 */
+
+
+
+/* section2 .hotList - 태블릿 */
+
+.hotList{
+    padding:0 10px;
+}
+.hotList h2{
+    margin: 0 10px 30px 10px;
+}
+.hotList ul{
+    width:100%;
+    flex-wrap: nowrap;
+    padding:0;
+}
+.hotList ul li{
+    margin:0 10px;
+}
+/* section2 .hotList - 태블릿 끝 */
+
+
+/* section3 .sail - 태블릿 */
+.sail ul{
+    width:120%;
+}
+/* section3 .sail - 태블릿 끝 */
+
+
+/* section4 .event - 태블릿 */
+/* section4 .event - 태블릿 끝 */
+
+
+/* section5 .sns - 태블릿 */
+.sns{
+    overflow:visible;
+}
+.sns ul{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+/* section5 .sns - 태블릿 끝 */
+
+
+/* section6 .review - 태블릿 */
+.review ul li a{ 
+    display: flex;
+    justify-content: space-between;
+}
+.review a img{
+    width:60%;
+}
+.review_content{
+    width:40%;
+    padding:20px;
+}
+/* section6 .review - 태블릿 끝 */
+
+/* footer - 태블릿 */
+.f_sns ul{
+    flex-wrap: nowrap;
+}
+.f_sns ul li a{
+    width:64px;
+    height:64px;
+    background-size: 400px;
+}
+.f_sns .blog a{
+    background-position:-4px -8px;
+}
+.f_sns .insta a{
+    background-position:-84px -8px;
+}
+.f_sns .fb a{
+    background-position:-164px -8px;
+}
+.f_sns .youtube a{
+    background-position:-248px -8px;
+}
+.f_sns .twit a{
+    background-position:-324px -8px;
+}
+/* footer - 태블릿 끝 */
+
+}/* 태블릿화면 - (768px) 끝 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* pc화면 - (1200px) 기준 */
+@media screen and (min-width:1200px){
+h2{
+    font-size:25px;
+    line-height:30px;
+    padding-bottom:20px;
+    text-align: center;
+}
+/* #header - pc */
+.pc{
+    display: block;
+}
+.mo{
+    display: none;
+}
+.headerIn{
+    width:1200px;
+    margin:0 auto;
+}
+.h_logo{
+    margin:0;
+    width:100px;
+    height:50px;
+    background-color: aqua;
+}
+.h_box{
+    display: flex;
+    position: absolute;
+    right:0;
+    bottom:50px;
+}
+.pc_util ul{
+    display: flex;
+}
+.pc_util ul li{
+    margin:0 15px;
+}
+.pc_util ul li a{
+    color:#222;
+}
+.h_cart{
+    position:static; 
+    margin-left:15px;
+}
+.h_search{
+    position:static;
+    margin-right:15px;
+    width:200px;
+    background-repeat: no-repeat;
+}
+fieldset{
+    display: flex;
+}
+
+/* #header - pc  끝 */
+
+
+
+/* section1 .main_slide - pc */
+.main_slide{
+    width:100%;
+    margin-bottom:100px;
+}
+.main_in{
+    width:1200px;
+    height:800px;
+} 
+.ms_img{
+    position:absolute;
+    width:1600px;
+    left:50%;
+    margin-left:-800px;
+}
+
+.slick-prev, .slick-next{
+    width:80px;
+    height:80px;
+}
+.slick-prev{
+    left:50%;
+    margin-left:-720px;
+}
+.slick-next{
+    right:50%;
+    margin-right:-720px;
+}
+.slick-initialized {
+    overflow: hidden;
+    }
+/* section1 .main_slide - pc 끝 */
+
+
+/* section2 .newList pc */
+.newList{
+    width:1200px;
+    margin:0 auto;
+    margin-bottom:100px;
+}
+.newList h2{
+    margin:0 0 30px 0;
+}
+.newList ul{
+    width:100%;
+    justify-content: space-between;
+    margin:0;
+    padding:0;
+
+}
+.newList ul li{
+    width:18%;
+    margin:0;    
+}
+/* section2 .newList pc 끝 */
+
+
+/* section3 .hotList pc */
+.hotList{
+    width:1200px;
+    margin:0 auto;
+    margin-bottom:100px;
+}
+.hotList h2{
+    margin:0 0 30px 0;
+}
+.hotList ul{
+    width:100%;
+    justify-content: space-between;
+    margin:0;
+    padding:0;
+}
+.hotList ul li{
+    width:18%;
+    margin:0;
+}
+/* section3 .hotList pc 끝 */
+
+
+/* section4 .sail pc */
+.sail{
+    overflow:visible;
+    width:1200px;
+    margin : 0 auto;
+    margin-bottom:100px;
+}
+.sail h2{
+    margin:0 0 30px 0;
+}
+.sail ul{
+    width:100%;
+    justify-content: space-between;
+    margin:0;
+}
+.sail li{
+    margin:0;
+    width:18%;
+}
+/* section4 .sail pc 끝 */
+
+
+/* section5 .event pc */
+.event{
+    width:1200px;
+    margin : 0 auto;
+    margin-bottom:100px;
+}
+.event h2{
+    margin:0 0 30px 0;
+}
+.event_in{
+    display: flex;
+}
+.event_page{
+    width:60%;
+    height:450px;
+}
+.event ul{
+    display: block;
+    width:40%;
+}
+.event ul li{
+    width:100%;
+    height:150px;
+}
+/* section5 .event pc 끝 */
+
+
+
+/* section6 .sns pc */
+.sns{
+    width:1200px;
+    margin : 0 auto;
+    margin-bottom:100px;
+}
+.sns h2{
+    margin:0 0 30px 0;
+}
+/* section6 .sns pc 끝 */
+
+
+
+/* section7 .review pc */
+.review{
+    width:1200px;
+    margin : 0 auto;
+    margin-bottom:100px;
+}
+.review h2{
+    margin:0 0 30px 0;
+}
+.review ul{
+    margin : 0;
+    display: flex;
+    justify-content: space-between;
+}
+/* section7 .review pc 끝 */
+
+
+
+/* footer - pc */
+.footer_in{
+    width:1200px;
+    margin : 0 auto;
+}
+.f_tell{
+    font-size:25px;
+    line-height: 35px;
+}
+
+
+
+
+
+/* footer - pc 끝 */
+
+}/* pc화면 - (1440px) 끝 */
+
+
