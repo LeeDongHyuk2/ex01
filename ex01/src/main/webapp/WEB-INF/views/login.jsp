@@ -9,9 +9,7 @@
 </head>
 <body>
 <form>
-	
 	<input type="text" name="id" placeholder="아이디">
-
 	<input type="password" name="pwd" placeholder="비밀번호">
 	<input type="submit" value="로그인">	
 	<input type="checkbox" name="keep_login">

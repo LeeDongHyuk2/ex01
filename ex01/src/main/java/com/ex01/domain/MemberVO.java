@@ -9,7 +9,7 @@ public class MemberVO {
 	private String member_pwd;
 	private String member_name;
 	private String member_nickname;
-	private Date member_birth;
+	private String member_birth;
 	private String member_gender;
 	private String member_address;
 	private String member_phone;
@@ -51,10 +51,10 @@ public class MemberVO {
 	public void setMember_nickname(String member_nickname) {
 		this.member_nickname = member_nickname;
 	}
-	public Date getMember_birth() {
+	public String getMember_birth() {
 		return member_birth;
 	}
-	public void setMember_birth(Date member_birth) {
+	public void setMember_birth(String member_birth) {
 		this.member_birth = member_birth;
 	}
 	public String getMember_gender() {
@@ -94,5 +94,5 @@ public class MemberVO {
 				+ ", member_birth=" + member_birth + ", member_gender=" + member_gender + ", member_address="
 				+ member_address + ", member_phone=" + member_phone + ", member_email=" + member_email
 				+ ", member_register_date=" + member_register_date + "]";
-	}	
+	}
 }

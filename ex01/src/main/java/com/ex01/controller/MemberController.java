@@ -12,13 +12,13 @@ import com.ex01.domain.MemberVO;
 import com.ex01.service.MemberService;
 
 @Controller
-@RequestMapping("member")
+@RequestMapping(value="member")
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	@Autowired
 	private MemberService service;
-	@RequestMapping(value="login", method = RequestMethod.GET)
 	
+	@RequestMapping(value="login", method = RequestMethod.GET)	
 	public String login() {
 		logger.info("login page.");		
 		return "login";
@@ -30,10 +30,10 @@ public class MemberController {
 		return "join";
 	}
 	
-	@PostMapping(value="join")
-	public String join_member(MemberVO member) {
+	@PostMapping("join")
+	public String joinPost(MemberVO member) {
 		logger.info("join");
-		service.member_join(member);
+		service.join(member);
 		return "redirect:/";
 	}
 }

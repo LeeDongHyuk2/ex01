@@ -3,6 +3,6 @@ package com.ex01.service;
 import com.ex01.domain.MemberVO;
 
 public interface MemberService {
-	// х╦©Ь╟║ют
-	public void member_join(MemberVO member);
+	// х╦О©╫О©╫О©╫О©╫О©╫О©╫
+	public void join(MemberVO member);
 }

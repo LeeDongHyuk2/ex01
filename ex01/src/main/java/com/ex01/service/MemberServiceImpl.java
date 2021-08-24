@@ -16,8 +16,8 @@ public class MemberServiceImpl implements MemberService{
 	private MemberMapper mapper;
 	
 	@Override
-	public void member_join(MemberVO member) {
-		// È¸¿ø°¡ÀÔ(join) ±¸ÇöºÎ
+	public void join(MemberVO member) {
+		// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(join) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		logger.info("member join-" + member);
 		mapper.join(member);
 	}
