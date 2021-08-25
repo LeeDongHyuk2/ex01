@@ -1,22 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page session="false" %>
-<!DOCTYPE html>
+    <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<form>
-	<input type="text" name="id" placeholder="아이디">
-	<input type="password" name="pwd" placeholder="비밀번호">
-	<input type="submit" value="로그인">	
-	<input type="checkbox" name="keep_login">
-	<label for="keep_login">로그인 유지</label>
-</form>
-<a href="">아이디 찾기</a>
-<a href="">비밀번호 찾기</a>
-<a href="join"><input type="button" value="회원가입"></a>
+	<h1>로그인 페이지</h1>
+	
+	<div>
+		<input type='text' id='member_id' name='member_id'>
+	</div>
+	<div>
+		<input type='password' id='member_pwd' name='member_pwd'>
+	</div>
+	<div>
+		<input type='checkbox' id='member_check' name='remember-me'> 로그인 유지
+	</div>
+	<div>
+		<input type='submit' value="로그인">
+		<a href="/"><button>취소</button></a>
+	</div>
+	<a href="">아이디 찾기</a>
+	<a href="">비밀번호 찾기</a>
+	<a href="join"><input type="button" value="회원가입"></a>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
+	<script src="../resources/js/login.js"></script>
 </body>
 </html>

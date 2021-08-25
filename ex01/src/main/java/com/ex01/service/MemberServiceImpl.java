@@ -11,7 +11,7 @@ import com.ex01.mapper.MemberMapper;
 
 @Service
 public class MemberServiceImpl implements MemberService{
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 	@Autowired
 	private MemberMapper mapper;
 	
@@ -20,5 +20,11 @@ public class MemberServiceImpl implements MemberService{
 		// ȸ������(join) ������
 		logger.info("member join-" + member);
 		mapper.join(member);
+	}
+
+	@Override
+	public void login(MemberVO Member) {
+		// TODO Auto-generated method stub
+		
 	}
 }

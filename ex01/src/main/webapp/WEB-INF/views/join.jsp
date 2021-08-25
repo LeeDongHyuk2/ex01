@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>회원가입</h1>
-	<form action="join" method="post">
+	<form action="/member/join" method="post">
 	  	<div>
 			<label>개인회원<input type="radio" name="member_type" value=1></label>
 			<label>사업자회원<input type="radio" name="member_type" value=2></label>
@@ -36,7 +36,6 @@
 			<input type="submit" value="회원가입">
 			<input type="button" value="취소">
 		</div>
-
 	</form>
 </body>
 </html>

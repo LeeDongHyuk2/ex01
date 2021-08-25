@@ -5,4 +5,5 @@ import com.ex01.domain.MemberVO;
 public interface MemberService {
 	// ȸ������
 	public void join(MemberVO member);
+	public void login(MemberVO member);
 }
