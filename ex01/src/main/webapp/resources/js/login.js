@@ -1,6 +1,6 @@
 /**
  * 
- */
+
 $(document).ready(function(){
 	$("input[type='submit']").on("click", function(e){
 		var id = $('#mebmer_id').val();
@@ -16,4 +16,4 @@ $(document).ready(function(){
 			}
 		})
 	})
-})
+}) */

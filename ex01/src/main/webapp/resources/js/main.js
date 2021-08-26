@@ -1,11 +1,12 @@
-
-// 메인 슬라이드 이벤트
 $(document).ready(function(){
+	// 메인 슬라이드 이벤트
     $('.single-item').slick({
         dots:true,
         autoplay : true,
         autoplaySpeed: 5000
     });
+    
+    
 })
 
 // 모바일, 태블릿에서 죄측상단 메뉴(.mo_menu) 클릭시(사이드 아코디언 메뉴)

@@ -9,20 +9,21 @@
 </head>
 <body>
 	<h1>로그인 페이지</h1>
-	
-	<div>
-		<input type='text' id='member_id' name='member_id'>
-	</div>
-	<div>
-		<input type='password' id='member_pwd' name='member_pwd'>
-	</div>
-	<div>
-		<input type='checkbox' id='member_check' name='remember-me'> 로그인 유지
-	</div>
-	<div>
-		<input type='submit' value="로그인">
-		<a href="/"><button>취소</button></a>
-	</div>
+	<form action="login" method="post">
+		<div>
+			<input type='text' id='member_id' name='member_id'>
+		</div>
+		<div>
+			<input type='password' id='member_pwd' name='member_pwd'>
+		</div>
+		<div>
+			<input type='checkbox' id='member_check' name='remember-me'> 로그인 유지
+		</div>
+		<div>
+			<input type='submit' value="로그인">
+			<a href="/"><button>취소</button></a>
+		</div>
+	</form>
 	<a href="">아이디 찾기</a>
 	<a href="">비밀번호 찾기</a>
 	<a href="join"><input type="button" value="회원가입"></a>
