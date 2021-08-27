@@ -3,7 +3,8 @@ package com.ex01.service;
 import com.ex01.domain.MemberVO;
 
 public interface MemberService {
-	// ȸ������
+	// 회원가입
 	public void join(MemberVO member);
-	public void login(MemberVO member);
+	// 로그인
+	public MemberVO login(MemberVO member);
 }

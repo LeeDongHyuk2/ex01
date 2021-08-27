@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,15 +20,15 @@
                 <div class="h_logo">가구쇼핑몰</div><!--.logo-->
                 <nav class="gnb">
                     <ul>
-                        <li><a href="">베스트</a></li>
-                        <li><a href="">신상</a></li>
-                        <li><a href="">의자</a></li>
-                        <li><a href="">테이블</a></li>
-                        <li><a href="">수납장</a></li>
-                        <li><a href="">책장</a></li>
-                        <li><a href="">리빙/소품</a></li>
-                        <li><a href="">조명</a></li>
-                        <li><a href="">기타</a></li>
+                        <li><a href="/list/best">베스트</a></li>
+                        <li><a href="/list/new">신상</a></li>
+                        <li><a href="/list/chair">의자</a></li>
+                        <li><a href="/list/table">테이블</a></li>
+                        <li><a href="/list/cabinet">수납장</a></li>
+                        <li><a href="/list/bookshelf">책장</a></li>
+                        <li><a href="/list/prob">리빙/소품</a></li>
+                        <li><a href="/list/light">조명</a></li>
+                        <li><a href="/list/etc">기타</a></li>
                     </ul>
                 </nav><!--.gnb-->
                 <div class="mo_menu mo">
@@ -47,12 +48,14 @@
                         </form>  
                     </div>      
                     <div class="pc_util pc">
-                        <ul>
+                        <ul>                        
                             <li>
-
+                           		<c:if test="${member == null}">
 									<a href="/member/login">로그인</a>
-
-
+								</c:if>
+							 	<c:if test="${member != null}">
+									<a href="/member/logout">로그아웃</a>
+								</c:if>
 							</li>
                             <li><a href="">마이페이지</a></li>
                         </ul>                                             
@@ -83,49 +86,9 @@
 
 
             <div class="newList">
-                <div>
+                <div class="newListItem">
                     <h2>신상품</h2>
                     <ul>
-                        <li>
-                            <a href="">
-                                <img src="./img/new_pic_1.jpg" alt="">
-                                <p class="item_name">의자</p>
-                                <p class="item_price">50,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="./img/new_pic_2.jpg" alt="">
-                                <p class="item_name">침대1</p>
-                                <p class="item_price">50,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="./img/new_pic_3.jpg" alt="">
-                                <p class="item_name">침대2</p>
-                                <p class="item_price">50,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="./img/new_pic_4.jpg" alt="">
-                                <p class="item_name">쇼파1</p>
-                                <p class="item_price">50,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li class="pc">
-                            <a href="">
-                                <img src="./img/new_pic_5.jpg" alt="">
-                                <p class="item_name">쇼파2</p>
-                                <p class="item_price">50,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <p class="new_more"><a href="">더보기</a></p>
@@ -133,49 +96,9 @@
 
 
             <div class="hotList">
-                <div>
+                <div class="hotListItem">
                     <h2>인기상품</h2>
                     <ul>
-                        <li>
-                            <a href="">
-                                <img src="./img/hot_pic_1.jpg" alt="">
-                                <p class="item_name">의자1</p>
-                                <p class="item_price">50,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="./img/hot_pic_2.jpg" alt="">
-                                <p class="item_name">식탁</p>
-                                <p class="item_price">70,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="./img/hot_pic_3.jpg" alt="">
-                                <p class="item_name">침대</p>
-                                <p class="item_price">200,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="./img/hot_pic_4.jpg" alt="">
-                                <p class="item_name">의자2</p>
-                                <p class="item_price">50,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
-                        <li class="pc">
-                            <a href="">
-                                <img src="./img/hot_pic_5.jpg" alt="">
-                                <p class="item_name">쇼파</p>
-                                <p class="item_price">100,000</p>
-                                <p class="item_memo">설명~</p>
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <p class="hot_more"><a href="">더보기</a></p>

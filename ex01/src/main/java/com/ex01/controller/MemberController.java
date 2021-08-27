@@ -1,13 +1,17 @@
 package com.ex01.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ex01.domain.MemberVO;
 import com.ex01.service.MemberService;
@@ -38,9 +42,24 @@ public class MemberController {
 		return "redirect:/";
 	}
 	@PostMapping("login")
-	public String loginPost(@RequestBody MemberVO Member) {
-		service.login(Member);
-		logger.info("id = " + Member.getMember_id() + " pwd = " + Member.getMember_pwd());
+	public String loginPost(MemberVO Member, HttpServletRequest req, RedirectAttributes rttr) {
+		HttpSession session = req.getSession();
+		MemberVO login = service.login(Member);
+		logger.info("post login - id = " + Member.getMember_id() + " pwd = " + Member.getMember_pwd());
+		if(login == null) {
+			session.setAttribute("member", null);
+			rttr.addFlashAttribute("msg", false);
+		}else {
+			session.setAttribute("member", login);
+		}
+		logger.info(""+session.getAttribute("member"));
 		return "redirect:/";
+	}
+	@GetMapping("logout")
+	public String logout(HttpServletRequest req, RedirectAttributes rttr) {
+		HttpSession session = req.getSession();
+		session.invalidate();
+		logger.info("user logout");
+		return "index";
 	}
 }

@@ -22,14 +22,14 @@
 		<result property="userid" column="userid"/>
 		<result property="auth" column="auth"/>		
 	</resultMap>
-	<select id="read" resultMap="memberMap">
-		SELECT mem.member_id, member_pwd, member_enabled, member_regdate, member_updatedate, auth
-		FROM member mem LEFT OUTER JOIN member_auth auth on mem.member_id = auth.member_id
-		WHERE mem.member_id = #{member_id}
-	</select>
-	
 	<insert id="join">
 		insert into member(member_type, member_id, member_pwd, member_name, member_birth, member_gender, member_address, member_phone, member_email)
 		values(#{member_type}, #{member_id},#{member_pwd},#{member_name},#{member_birth},#{member_gender},#{member_address},#{member_phone},#{member_email});
 	</insert>
+	
+	<select id="login" resultType="com.ex01.domain.MemberVO">
+		SELECT member_id, member_pwd
+		FROM member
+		where member_id = #{member_id} AND member_pwd = #{member_pwd}
+	</select>
 </mapper>

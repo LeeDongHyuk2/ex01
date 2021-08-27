@@ -1,11 +1,13 @@
-
-// 메인 슬라이드 이벤트
 $(document).ready(function(){
+	// 메인 슬라이드 이벤트
     $('.single-item').slick({
         dots:true,
         autoplay : true,
         autoplaySpeed: 5000
     });
+    
+    getNewList();
+    getHotList();
 })
 
 // 모바일, 태블릿에서 죄측상단 메뉴(.mo_menu) 클릭시(사이드 아코디언 메뉴)
@@ -45,3 +47,32 @@ $('.sns_img')
         })
 
     })
+    
+function getNewList(){
+	var str = "";
+	$.getJSON("getNewList",function(arr){
+		console.log(arr);
+		$(arr).each(function(i,product){
+			str += "<li><a href=''>"
+			str += "<p class='item_name'>"+product.product_name+"</p>"
+			str += "<p class='item_price'>"+product.product_price+"</p>"
+			str += "<p class='item_memo'>"+product.product_memo+"</p>"
+			str += "</a></li>"
+		});
+		$(".newListItem ul").html(str);
+	})	
+}
+function getHotList(){
+	var str = "";
+	$.getJSON("getHotList",function(arr){
+		console.log(arr);
+		$(arr).each(function(i,product){
+			str += "<li><a href=''>"
+			str += "<p class='item_name'>"+product.product_name+"</p>"
+			str += "<p class='item_price'>"+product.product_price+"</p>"
+			str += "<p class='item_memo'>"+product.product_memo+"</p>"
+			str += "</a></li>"
+		});
+		$(".hotListItem ul").html(str);
+	})
+}

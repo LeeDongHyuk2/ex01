@@ -1,11 +1,11 @@
 package com.ex01.service;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ex01.controller.MemberController;
 import com.ex01.domain.MemberVO;
 import com.ex01.mapper.MemberMapper;
 
@@ -23,8 +23,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void login(MemberVO Member) {
-		// TODO Auto-generated method stub
-		
+	public MemberVO login(MemberVO Member) {		
+		logger.info("member login" + Member.getMember_id());
+		return Member;
 	}
 }
