@@ -74,6 +74,10 @@
 		let uploadResult = $("#uploadResult");
 		
 		let obj = uploadResultArr[0];
+		
+		let str = "";
+		
+		let fileCallPath = obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName;
 	}
 	</script>	
 </body>
