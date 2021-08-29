@@ -2,6 +2,8 @@ package com.ex01.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,10 +14,13 @@ import javax.imageio.ImageIO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,6 +35,24 @@ public class ProductController {
 	@PostMapping(value = "/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<AttachImageVO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
 		logger.info("uploadAjaxActionPOST.......");
+		
+		// 이미지 파일 체크
+		for(MultipartFile multipartFile : uploadFile)	{
+			
+			File checkfile = new File(multipartFile.getOriginalFilename());
+			String type = null;
+			
+			try {				
+				type = Files.probeContentType(checkfile.toPath());
+				logger.info("MIME TYPE : " + type);
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
+			if(!type.startsWith("image")) {
+				List<AttachImageVO> list = null;
+				return new ResponseEntity<>(list, HttpStatus.BAD_REQUEST);
+			}
+		}// for
 		String uploadFolder = "C:\\upload";
 		
 		// 날짜 폴더 경로
@@ -69,25 +92,6 @@ public class ProductController {
 			try {
 				multipartFile.transferTo(saveFile);
 				
-//				// 썸네일 생성(ImageIO)
-//				File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
-//				
-//				BufferedImage bo_image = ImageIO.read(saveFile);
-//				
-//				// 비율
-//				double ratio = 3;
-//				// 넓이 높이
-//				int width = (int)(bo_image.getWidth()/ratio);
-//				int height = (int)(bo_image.getHeight()/ratio);
-//				
-//				BufferedImage bt_image = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
-//				
-//				Graphics2D graphic = bt_image.createGraphics();
-//				
-//				graphic.drawImage(bo_image, 0, 0, width, height, null);
-//				
-//				ImageIO.write(bt_image, "jpg", thumbnailFile);
-				
 				File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
 				
 				BufferedImage bo_image = ImageIO.read(saveFile);
@@ -109,6 +113,27 @@ public class ProductController {
 		} // for문 끝
 		
 		ResponseEntity<List<AttachImageVO>> result = new ResponseEntity<List<AttachImageVO>>(list, HttpStatus.OK);
+		return result;
+	}
+	
+	@GetMapping("/display")
+	public ResponseEntity<byte[]> getImage(String fileName){
+		logger.info("getImage()...... " + fileName);
+		
+		File file = new File("c:\\upload\\" + fileName);
+		
+		ResponseEntity<byte[]> result = null;
+		
+		try {
+			HttpHeaders header = new HttpHeaders();
+			
+			header.add("Content-type", Files.probeContentType(file.toPath()));
+			
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return result;
 	}
 }

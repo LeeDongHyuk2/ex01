@@ -12,7 +12,10 @@
 			<label>상품 이미지</label>
 		</div>
 		<div class="form_section_content">
-			<input type="file" id="fileItem" name='uploadFile'>
+			<input type="file" id="fileItem" name='uploadFile' style="height:30px;">
+			<div id="uploadResult">
+				
+			</div>
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -24,9 +27,9 @@
 		let fileObj = fileList[0];
 		
 		
-		if(!fileCheck(fileObj.name, fileObj.size)){
+/* 		if(!fileCheck(fileObj.name, fileObj.size)){
 			return false;
-		}
+		} */
 		formData.append("uploadFile", fileObj);
 		//여러 파일을 선택할 수 있다면
 		//for(let i = 0; i < fileList.length; i++){
@@ -41,6 +44,10 @@
 			dataType : 'json', // 서버로부터 반환받을 데이터 타입
 			success : function(result){
 				console.log(result);
+				showUploadImage(result);
+			},
+			error : function(result){
+				alert("이미지 파일이 아닙니다.");
 			}
 		})
 	});	
@@ -58,6 +65,15 @@
 			return false;
 		}
 		return true;
+	}
+	
+	// 이미지 출력
+	function showUploadImage(uploadResultArr){
+		if(!uploadResulatArr || uploadResultArr.length == 0){return}
+		
+		let uploadResult = $("#uploadResult");
+		
+		let obj = uploadResultArr[0];
 	}
 	</script>	
 </body>
