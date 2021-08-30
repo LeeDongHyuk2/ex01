@@ -10,6 +10,6 @@ $(document).ready(function(){
 			str += "<p class='item_memo'>"+product.product_memo+"</p>"
 			str += "</a></li>"
 		});
-		$("ul").html(str);
+		$("#productList").html(str);
 	})
 });

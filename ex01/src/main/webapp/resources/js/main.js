@@ -53,7 +53,7 @@ function getNewList(){
 	$.getJSON("getNewList",function(arr){
 		console.log(arr);
 		$(arr).each(function(i,product){
-			str += "<li><a href=''>"
+			str += "<li class='detail'><a href='/product/productDetail/"+product.product_no+"'>"
 			str += "<p class='item_name'>"+product.product_name+"</p>"
 			str += "<p class='item_price'>"+product.product_price+"</p>"
 			str += "<p class='item_memo'>"+product.product_memo+"</p>"
@@ -67,7 +67,7 @@ function getHotList(){
 	$.getJSON("getHotList",function(arr){
 		console.log(arr);
 		$(arr).each(function(i,product){
-			str += "<li><a href=''>"
+			str += "<li class='detail'><a href='/product/productDetail/"+product.product_no+"'>"
 			str += "<p class='item_name'>"+product.product_name+"</p>"
 			str += "<p class='item_price'>"+product.product_price+"</p>"
 			str += "<p class='item_memo'>"+product.product_memo+"</p>"

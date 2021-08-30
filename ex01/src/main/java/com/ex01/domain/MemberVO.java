@@ -2,33 +2,33 @@ package com.ex01.domain;
 
 import java.util.Date;
 import java.util.List;
-
+// íšŒì› VO
 public class MemberVO {
-	// È¸¿ø ±¸ºĞ
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private int member_type;
-	// È¸¿ø ¾ÆÀÌµğ
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	private String member_id;
-	// È¸¿ø ºñ¹Ğ¹øÈ£
+	// È¸ï¿½ï¿½ ï¿½ï¿½Ğ¹ï¿½È£
 	private String member_pwd;
-	// È¸¿ø ÀÌ¸§
+	// È¸ï¿½ï¿½ ï¿½Ì¸ï¿½
 	private String member_name;
-	// È¸¿ø »ı³â¿ùÀÏ
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private String member_birth;
-	// È¸¿ø ¼ºº°
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private String member_gender;
-	// È¸¿ø ¿¬¶ôÃ³
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³
 	private String member_phone;
-	// È¸¿ø ÁÖ¼Ò
+	// È¸ï¿½ï¿½ ï¿½Ö¼ï¿½
 	private String member_address;
-	// È¸¿ø ÀÌ¸ŞÀÏ
+	// È¸ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½
 	private String member_email;
-	// È¸¿ø µî·ÏÀÏ
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	private Date member_regdate;
-	// È¸¿ø ÃÖ±Ù Á¢¼ÓÀÏ
+	// È¸ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private Date member_updatedate;
-	// È¸¿ø 
+	// È¸ï¿½ï¿½ 
 	private boolean member_enabled;
-	// È¸¿ø ±ÇÇÑ ¸®½ºÆ®
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	private List<AuthVO> authList;
 	public int getMember_type() {
 		return member_type;

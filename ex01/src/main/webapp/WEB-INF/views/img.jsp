@@ -21,6 +21,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 	$("input[type='file']").on("change", function(e){
+		// 이미지 존재할 시 삭제
+		if($(".imgDeleteBtn").length >0){
+			deleteFile();
+		}
+		
 		let formData = new FormData();
 		let fileInput = $('input[name="uploadFile"]');
 		let fileList = fileInput[0].files;
@@ -52,6 +57,12 @@
 		})
 	});	
 	
+	// 이미지 삭제 버튼 클릭 시
+	$("#uploadResult").on("click", ".imgDeleteBtn", function(e){
+		deleteFile();
+	});
+	
+	
 	let regex = new RegExp("(.*?)\.(jpg|png)$");
 	let maxSize = 1048576; //1MB
 	
@@ -69,7 +80,7 @@
 	
 	// 이미지 출력
 	function showUploadImage(uploadResultArr){
-		if(!uploadResulatArr || uploadResultArr.length == 0){return}
+		if(!uploadResultArr || uploadResultArr.length == 0){return}
 		
 		let uploadResult = $("#uploadResult");
 		
@@ -77,7 +88,43 @@
 		
 		let str = "";
 		
-		let fileCallPath = obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName;
+		// 파일이름에 한글이 들어간 경우 UTF-8로 인코딩을 자동으로 해주지 않는 웹브라우저가 있기때문에 encodeURIComponent() 메서드로 인코딩해줌
+		let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
+		
+		str += "<div id = 'result_card'>";
+		str += "<img src='/display?fileName=" + fileCallPath + "'>";
+		str += "<div class='imgDeleteBtn' data-file = '" + fileCallPath + "'>x<div>";
+		str += "<input type = 'hidden' name='imageList[0].fileName' value='" + obj.fileName + "'>";
+		str += "<input type = 'hidden' name='imageList[0].uuid' value='" + obj.uuid + "'>";
+		str += "<input type = 'hidden' name='imageList[0].uploadPath' value='" + obj.uploadPath + "'>";		
+		str += "</div>";
+		
+		uploadResult.append(str);
+	}
+	
+	// 파일 삭제 메서드
+	function deleteFile(){
+		let targetFile = $(".imgDeleteBtn").data("file");
+		
+		let targetDiv = $("#result_card");
+		
+		$.ajax({
+			url : '/deleteFile',
+			data : {fileName : targetFile},
+			dataType : 'text',
+			type : 'POST',
+			success : function(result){
+				console.log(result);
+
+				targetDiv.remove();
+				$("input[type='file']").val("");
+			},
+			error : function(result){
+				console.log(result);
+				
+				alert("파일을 삭제하지 못하였습니다.");
+			}
+		})
 	}
 	</script>	
 </body>

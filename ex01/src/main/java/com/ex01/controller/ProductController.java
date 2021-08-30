@@ -3,6 +3,7 @@ package com.ex01.controller;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,23 +15,37 @@ import javax.imageio.ImageIO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ex01.domain.AttachImageVO;
+import com.ex01.domain.ProductVO;
+import com.ex01.mapper.ProductMapper;
+import com.ex01.service.ProductService;
 
 import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
+@RequestMapping(value="product")
 public class ProductController {
 	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+	
+	@Autowired
+	private ProductService pservice;
+	@Autowired
+	private ProductMapper mapper;
 	/* 첨부 파일 업로드 */
 	@PostMapping(value = "/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<AttachImageVO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
@@ -135,5 +150,63 @@ public class ProductController {
 		}
 		
 		return result;
+	}
+	
+	@PostMapping("/deleteFile")
+	public ResponseEntity<String> deleteFile(String fileName){
+		logger.info("deleteFile......."+fileName);
+		
+		File file = null;
+		
+		try {
+			// 썸네일 파일 삭제
+			file = new File("c:\\upload\\" + URLDecoder.decode(fileName,"UTF-8"));
+			
+			file.delete();
+			
+			// 원본 파일 삭제
+			String originFileName = file.getAbsolutePath().replace("s_", "");
+			
+			logger.info("originFileName) ; " + originFileName); 
+			
+			file = new File(originFileName);
+			
+			file.delete();
+			
+			return new ResponseEntity<String>("success", HttpStatus.OK);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+			return new ResponseEntity<String> ("fail", HttpStatus.NOT_IMPLEMENTED);
+		}
+	}
+	
+	@PostMapping("/productRegister")
+	public String productRegisterPOST(ProductVO product, RedirectAttributes rttr) {
+		logger.info("productRegister..... " + product);
+		
+		pservice.productResgister(product);
+		
+		rttr.addFlashAttribute("", product.getProduct_name());
+		
+		return "redirect:/";		
+	}
+	
+	// 이미지 정보 반환
+	@GetMapping(value ="/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<AttachImageVO>> getAttachList(int product_id){
+		logger.info("getAttachList ....... " + product_id);
+		
+		return new ResponseEntity<List<AttachImageVO>>(mapper.getAttachList(product_id), HttpStatus.OK);
+	}
+	
+	// 상품 조회 페이지
+	@GetMapping(value="/productDetail/{product_no}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public String productGetDetail(@PathVariable("product_no") int product_no, Model model) {
+		logger.info("productGetDetail........" + product_no);
+		
+		model.addAttribute("productInfo", pservice.productGetDetail(product_no));
+		return "productDetail";
 	}
 }

@@ -15,57 +15,7 @@
 </head>
 <body>
     <div id="wrap">
-        <header id="header">
-            <div class="headerIn">
-                <div class="h_logo">가구쇼핑몰</div><!--.logo-->
-                <nav class="gnb">
-                    <ul>
-                        <li><a href="/list/best">베스트</a></li>
-                        <li><a href="/list/new">신상</a></li>
-                        <li><a href="/list/chair">의자</a></li>
-                        <li><a href="/list/table">테이블</a></li>
-                        <li><a href="/list/cabinet">수납장</a></li>
-                        <li><a href="/list/bookshelf">책장</a></li>
-                        <li><a href="/list/prob">리빙/소품</a></li>
-                        <li><a href="/list/light">조명</a></li>
-                        <li><a href="/list/etc">기타</a></li>
-                    </ul>
-                </nav><!--.gnb-->
-                <div class="mo_menu mo">
-                    <a href="#">
-                        <span>메뉴열기</span>
-                        <span></span>
-                        <span></span>
-                    </a>
-                </div>
-                <div class="h_box">
-                    <div class="h_search">
-                        <form action="">
-                            <fieldset>
-                                <input type="text" class="pc">
-                                <input type="button" value="검색" class="search"></input>
-                            </fieldset>   
-                        </form>  
-                    </div>      
-                    <div class="pc_util pc">
-                        <ul>                        
-                            <li>
-                           		<c:if test="${member == null}">
-									<a href="/member/login">로그인</a>
-								</c:if>
-							 	<c:if test="${member != null}">
-									<a href="/member/logout">로그아웃</a>
-								</c:if>
-							</li>
-                            <li><a href="">마이페이지</a></li>
-                        </ul>                                             
-                    </div><!--.pc_util-->                    
-                    <p class="h_cart"><a href="#">장바구니</a></p>   
-                </div><!--.h_box-->
-                
-            </div><!--.headerIn-->
-        </header><!--#header-->
-
+        <%@include file="./header.jsp" %>
         <div id="container">
             <div class="main_slide">
                 <div class="main_in">

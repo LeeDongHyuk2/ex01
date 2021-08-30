@@ -60,6 +60,6 @@ public class MemberController {
 		HttpSession session = req.getSession();
 		session.invalidate();
 		logger.info("user logout");
-		return "index";
+		return "redirect:/";
 	}
 }

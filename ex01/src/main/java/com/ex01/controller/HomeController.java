@@ -72,9 +72,8 @@ public class HomeController {
 		logger.info("getListPage : "+page);		
 		return new ResponseEntity<>(pservice.getListPage(page), HttpStatus.OK);
 	}
-	
-	@GetMapping(value="img")
-	public String img() {
-		return "img";
+	@GetMapping(value="productRegister")
+	public String productRegister() {
+		return "productRegister";
 	}
 }

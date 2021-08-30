@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@include file="./header.jsp" %>
 	<h1>글쓰기</h1>
 	<form action="register" method="post" role="form">
 		<table>

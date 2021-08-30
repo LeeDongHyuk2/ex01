@@ -8,9 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@include file="./header.jsp" %>
 	<input type="hidden" value="${page}">
 	<p>${page }</p>
-	<ul></ul>
+	<ul id="productList"></ul>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

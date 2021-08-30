@@ -1,27 +1,40 @@
 package com.ex01.domain;
 
 import java.util.Date;
-
+import java.util.List;
+// ìƒí’ˆVO
 public class ProductVO {
-	// Á¦Ç°¹øÈ£
+	// ìƒí’ˆ ë²ˆí˜¸
 	private int product_no;
-	// Á¦Ç°ÀÌ¸§
+	// ìƒí’ˆ ë“±ë¡ ë©¤ë²„
+	private String member_id;
+	// ìƒí’ˆ ì´ë¦„
 	private String product_name;
-	// Á¦Ç°Ä«Å×°í¸®
+	// ìƒí’ˆ ì¢…ë¥˜
 	private String product_category;
-	// Á¦Ç°°¡°İ
-	private String product_price;
-	// Á¦Ç°¼³¸í
+	// ìƒí’ˆ ê°€ê²©
+	private int product_price;
+	// ìƒí’ˆ ë©”ëª¨
 	private String product_memo;
-	// Á¦Ç°Àç°í
-	private String product_stock;
-	// Á¦Ç°µî·Ï³¯Â¥
+	// ìƒí’ˆ ì¬ê³ 
+	private int product_stock;
+	// ìƒí’ˆ ë“±ë¡ ë‚ ì§œ
 	private Date product_regdate;
+	// ìƒí’ˆ ìˆ˜ì • ë‚ ì§œ
+	private Date product_updatedate;
+	// ì´ë¯¸ì§€ VO
+	private List<AttachImageVO> imageList;
 	public int getProduct_no() {
 		return product_no;
 	}
 	public void setProduct_no(int product_no) {
 		this.product_no = product_no;
+	}
+	public String getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 	public String getProduct_name() {
 		return product_name;
@@ -35,10 +48,10 @@ public class ProductVO {
 	public void setProduct_category(String product_category) {
 		this.product_category = product_category;
 	}
-	public String getProduct_price() {
+	public int getProduct_price() {
 		return product_price;
 	}
-	public void setProduct_price(String product_price) {
+	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
 	public String getProduct_memo() {
@@ -47,10 +60,10 @@ public class ProductVO {
 	public void setProduct_memo(String product_memo) {
 		this.product_memo = product_memo;
 	}
-	public String getProduct_stock() {
+	public int getProduct_stock() {
 		return product_stock;
 	}
-	public void setProduct_stock(String product_stock) {
+	public void setProduct_stock(int product_stock) {
 		this.product_stock = product_stock;
 	}
 	public Date getProduct_regdate() {
@@ -59,10 +72,23 @@ public class ProductVO {
 	public void setProduct_regdate(Date product_regdate) {
 		this.product_regdate = product_regdate;
 	}
+	public Date getProduct_updatedate() {
+		return product_updatedate;
+	}
+	public void setProduct_updatedate(Date product_updatedate) {
+		this.product_updatedate = product_updatedate;
+	}
+	public List<AttachImageVO> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<AttachImageVO> imageList) {
+		this.imageList = imageList;
+	}
 	@Override
 	public String toString() {
-		return "ProductVO [product_no=" + product_no + ", product_name=" + product_name + ", product_category="
-				+ product_category + ", product_price=" + product_price + ", product_memo=" + product_memo
-				+ ", product_stock=" + product_stock + ", product_regdate=" + product_regdate + "]";
+		return "ProductVO [product_no=" + product_no + ", member_id=" + member_id + ", product_name=" + product_name
+				+ ", product_category=" + product_category + ", product_price=" + product_price + ", product_memo="
+				+ product_memo + ", product_stock=" + product_stock + ", product_regdate=" + product_regdate
+				+ ", product_updatedate=" + product_updatedate + ", imageList=" + imageList + "]";
 	}
 }
