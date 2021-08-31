@@ -19,9 +19,10 @@ public class MemberMapperTests {
 	private MemberMapper mapper;
 	
 	@Test
-	public void testRead() {
-		MemberVO vo = mapper.read("admin90");
-		logger.info(""+vo);
-		vo.getAuthList().forEach(authVO -> logger.info(""+authVO));
+	public void memberIdChk() throws Exception{
+		String id = "ldh11871";
+		String id2 = "admin";
+		mapper.idCheck(id);
+		mapper.idCheck(id2);
 	}
 }

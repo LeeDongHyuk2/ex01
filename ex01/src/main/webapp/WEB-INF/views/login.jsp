@@ -28,7 +28,7 @@
 	<a href="">아이디 찾기</a>
 	<a href="">비밀번호 찾기</a>
 	<a href="join"><input type="button" value="회원가입"></a>
-	
+	<%@include file="./footer.jsp" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 	<script src="../resources/js/login.js"></script>
 </body>

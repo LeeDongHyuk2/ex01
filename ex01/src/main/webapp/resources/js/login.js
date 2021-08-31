@@ -1,5 +1,4 @@
-/**
- * 
+
 
 $(document).ready(function(){
 	$("input[type='submit']").on("click", function(e){
@@ -16,4 +15,4 @@ $(document).ready(function(){
 			}
 		})
 	})
-}) */
+}) 

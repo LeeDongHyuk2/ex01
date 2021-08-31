@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ex01.domain.MemberVO;
@@ -61,5 +62,18 @@ public class MemberController {
 		session.invalidate();
 		logger.info("user logout");
 		return "redirect:/";
+	}
+	
+	@PostMapping("/memberIdChk")
+	@ResponseBody
+	public String memberIdChkPOST(String member_id) throws Exception{
+		logger.info("memberIdChk : " + member_id);
+		int result = service.idCheck(member_id);
+		logger.info("memberIdChk 결과  : "+result);
+		if(result != 0) {
+			return "fail";
+		}else {
+			return "success";
+		}
 	}
 }

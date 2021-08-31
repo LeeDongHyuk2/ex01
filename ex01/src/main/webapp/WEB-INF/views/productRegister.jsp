@@ -54,6 +54,7 @@
 			<button id="#cancelBtn">취소</button>
 		</div>
 	</form>
+	<%@include file="./footer.jsp" %>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="../resources/js/productRegister.js"></script>
 </body>

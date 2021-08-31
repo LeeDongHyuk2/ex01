@@ -11,6 +11,8 @@ public interface ProductMapper {
 	public ArrayList<ProductVO> getNewList();
 	// 인기상품 리스트 출력
 	public ArrayList<ProductVO> getHotList();
+	// 세일상품 리스트 출력
+	public ArrayList<ProductVO> getSailList();
 	// 카테고리 별 리스트 출력
 	public ArrayList<ProductVO> getListPage(String page);
 	// 상품 등록

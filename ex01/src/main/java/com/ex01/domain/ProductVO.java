@@ -22,6 +22,8 @@ public class ProductVO {
 	private Date product_regdate;
 	// 상품 수정 날짜
 	private Date product_updatedate;
+	// 상품 할인률
+	private int product_discount;
 	// 이미지 VO
 	private List<AttachImageVO> imageList;
 	public int getProduct_no() {
@@ -78,6 +80,12 @@ public class ProductVO {
 	public void setProduct_updatedate(Date product_updatedate) {
 		this.product_updatedate = product_updatedate;
 	}
+	public int getProduct_discount() {
+		return product_discount;
+	}
+	public void setProduct_discount(int product_discount) {
+		this.product_discount = product_discount;
+	}
 	public List<AttachImageVO> getImageList() {
 		return imageList;
 	}
@@ -89,6 +97,7 @@ public class ProductVO {
 		return "ProductVO [product_no=" + product_no + ", member_id=" + member_id + ", product_name=" + product_name
 				+ ", product_category=" + product_category + ", product_price=" + product_price + ", product_memo="
 				+ product_memo + ", product_stock=" + product_stock + ", product_regdate=" + product_regdate
-				+ ", product_updatedate=" + product_updatedate + ", imageList=" + imageList + "]";
-	}
+				+ ", product_updatedate=" + product_updatedate + ", product_discount=" + product_discount
+				+ ", imageList=" + imageList + "]";
+	}	
 }

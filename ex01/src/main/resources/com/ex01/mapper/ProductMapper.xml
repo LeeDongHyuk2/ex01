@@ -18,6 +18,12 @@
 		ORDER BY product_no LIMIT 5;
 	</select>
 	
+	<select id="getSailList" resultType="com.ex01.domain.ProductVO">
+		SELECT *
+		FROM product
+		ORDER BY product_no LIMIT 5;
+	</select>
+	
 	<!-- gnb 항목페이지 -->
 	<select id="getListPage" resultType="com.ex01.domain.ProductVO">
 		SELECT *

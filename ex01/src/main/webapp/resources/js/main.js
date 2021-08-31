@@ -5,9 +5,12 @@ $(document).ready(function(){
         autoplay : true,
         autoplaySpeed: 5000
     });
-    
-    getNewList();
-    getHotList();
+    let hot = "Hot";
+    let news = "New";
+    let sail = "Sail";
+    getList(news);
+    getList(hot);
+    getList(sail);
 })
 
 // 모바일, 태블릿에서 죄측상단 메뉴(.mo_menu) 클릭시(사이드 아코디언 메뉴)
@@ -48,31 +51,34 @@ $('.sns_img')
 
     })
     
-function getNewList(){
-	var str = "";
-	$.getJSON("getNewList",function(arr){
-		console.log(arr);
+function getList(list){	
+	$.getJSON("get"+list+"List",function(arr){
+		let str = "";		
 		$(arr).each(function(i,product){
-			str += "<li class='detail'><a href='/product/productDetail/"+product.product_no+"'>"
-			str += "<p class='item_name'>"+product.product_name+"</p>"
-			str += "<p class='item_price'>"+product.product_price+"</p>"
-			str += "<p class='item_memo'>"+product.product_memo+"</p>"
-			str += "</a></li>"
-		});
-		$(".newListItem ul").html(str);
-	})	
-}
-function getHotList(){
-	var str = "";
-	$.getJSON("getHotList",function(arr){
-		console.log(arr);
-		$(arr).each(function(i,product){
-			str += "<li class='detail'><a href='/product/productDetail/"+product.product_no+"'>"
-			str += "<p class='item_name'>"+product.product_name+"</p>"
-			str += "<p class='item_price'>"+product.product_price+"</p>"
-			str += "<p class='item_memo'>"+product.product_memo+"</p>"
-			str += "</a></li>"
-		});
-		$(".hotListItem ul").html(str);
+			$.getJSON("/product/getAttachList", {product_no : product.product_no}, function(img_arr){
+				if(img_arr.length === 0){
+					
+					str += "<li><a href='/product/productDetail/"+product.product_no+"'>"
+					str += "<img src='/resources/img/productNoImage.png'>"
+					str += "<p class='item_name'>"+product.product_name+"</p>"
+					str += "<p class='item_price'>"+product.product_price+"</p>"
+					str += "<p class='item_memo'>"+product.product_memo+"</p>"
+					str += "</a></li>"		
+						
+				}else{				
+					let obj = img_arr[0];
+					let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
+					
+					str += "<li><a href='/product/productDetail/"+product.product_no+"'>"
+					str += "<img src='/product/display?fileName="+ fileCallPath +"'>"
+					str += "<p class='item_name'>"+product.product_name+"</p>"
+					str += "<p class='item_price'>"+product.product_price+"</p>"
+					str += "<p class='item_memo'>"+product.product_memo+"</p>"
+					str += "</a></li>"						
+				}
+				$(".list"+list+"Item ul").append(str);
+				str="";
+			})
+		})
 	})
 }

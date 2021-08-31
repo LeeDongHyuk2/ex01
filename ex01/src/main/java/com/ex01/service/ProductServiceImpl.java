@@ -30,12 +30,19 @@ public class ProductServiceImpl implements ProductService {
 		logger.info("getHotList.....");
 		return mapper.getHotList();
 	}
+	// 세일 상품 리스트 출력
+	@Override
+	public ArrayList<ProductVO> getSailList() {
+		logger.info("getSailList.....");
+		return mapper.getSailList();
+	}
 	// gnb 각 항목 페이지 이동
 	@Override
 	public ArrayList<ProductVO> getListPage(String page) {
 		logger.info("changePage : /"+ page);
 		return mapper.getListPage(page);
 	}
+	
 	// 상품 등록
 	@Transactional
 	@Override
@@ -49,8 +56,7 @@ public class ProductServiceImpl implements ProductService {
 		product.getImageList().forEach(attach->{
 			
 			attach.setProduct_no(product.getProduct_no());
-			mapper.pimgRegister(attach);
-			
+			mapper.pimgRegister(attach);			
 		});		
 	}
 	// 이미지 데이터 반환
@@ -66,6 +72,7 @@ public class ProductServiceImpl implements ProductService {
 		logger.info("productGetDetail......" + product_no);
 		return mapper.productGetDetail(product_no);
 	}
+
 	
 	
 }

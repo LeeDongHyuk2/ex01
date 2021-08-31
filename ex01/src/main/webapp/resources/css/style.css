@@ -13,78 +13,6 @@
     display: none;
 }
 
-
-
-/* #header - 모바일 */
-
-.headerIn{
-    height:90px;
-    position:relative;
-    overflow: hidden;
-}
-.h_logo{
-    margin:0 auto;
-    width:100px;
-    height:50px;
-    background-color:red;
-}
-.gnb ul{
-    background-color: beige;
-    width:200%;
-    position:absolute;
-    bottom:0;
-    display: flex;
-    justify-content: space-between;
-}
-.gnb li a{
-    line-height:30px;
-    display: block;
-    padding:0 15px;
-    color:#222;
-}
-.mo_menu{
-    position:absolute;
-    left:15px;
-    bottom:40px;
-}
-.mo_menu a{
-    padding-top:7px;
-    padding-left:5px;
-    text-indent:-99999px;
-}
-.mo_menu a span{
-    display: block;
-    height:3px;
-    background-color: #444;
-    width:20px;
-    margin-top:5px;
-}
-.h_search{
-    position:absolute;
-    right:50px;
-    bottom:40px;
-}
-.h_search .search{
-    background-image: url(../img/icon_search.png);
-    border:none;
-    height:20px;
-    width:20px;
-    text-indent: -99999px;
-}
-.h_cart a{
-    display: block;
-    position:absolute;
-    right:15px;
-    bottom:40px;
-    text-indent: -99999px;
-    width:22px;
-    height:20px;
-    background-image: url(../img/icon_cart.png);
-}
-
-/* #header - 모바일 끝 */
-
-
 /* section1 .main_slide - 모바일 */
 .main_slide{
     margin-bottom:60px;
@@ -193,29 +121,34 @@
 
 
 /* section4 .sail - 모바일 */
-.sail{
-    margin-bottom:60px;
-    overflow-x: scroll;
+.sailList{
+    margin-bottom:40px;
+    padding:0 10px;
 }
-.sail h2{
-    margin:0 20px 30px 20px;
+.sailList h2{
+    margin:0 10px 30px 10px;
 }
-.sail ul{
+.sailList ul{
     display: flex;
-    margin: 0 5px;
-    width:200%;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
 }
-.sail li{
+.sailList li{
+    width: 48%;
+    margin-bottom:20px;
     position:relative;
-    margin:15px;
 }
-.sail a{
+.sailList a{
     color:#222;
 }
-.sail li img{
-    border:1px solid #222;
+.sailList li img{
+    width:100%;
+    height:auto;
 }
-.sail li a::after{
+.sailList li a::after{
     content: "20%";
     font-size:15px;
     line-height: 50px;
@@ -230,6 +163,19 @@
     color : white;
     font-weight:bold;
     border-radius: 50%;
+}
+.new_more, .hot_more, .review_more{
+    position:absolute;
+    top:20px;
+    right:30px;
+}
+.new_more a, .hot_more a, .review_more a{
+    display: block;
+    padding-right:15px;
+    background-image: url(../img/icon_plus.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    color:#222;
 }
 /* section4 .sail - 모바일 끝 */
 
@@ -489,20 +435,6 @@
 /* 태블릿화면 - (768px)기준 */
 @media screen and (min-width:768px){
 
-/* #header - 태블릿 */
-.gnb ul{
-    width:100%;
-
-}
-.gnb li a{
-    line-height:30px;
-    display: block;
-    padding:0 15px;
-    color:#222;
-}
-/* #header - 태블릿 끝 */
-
-
 /* section1 .main_slide - 태블릿 */
 
 
@@ -550,8 +482,19 @@
 
 
 /* section3 .sail - 태블릿 */
-.sail ul{
-    width:120%;
+.sailList{
+    padding:0 10px;
+}
+.sailList h2{
+    margin: 0 10px 30px 10px;
+}
+.sailList ul{
+    width:100%;
+    flex-wrap: nowrap;
+    padding:0;
+}
+.sailList ul li{
+    margin:0 10px;
 }
 /* section3 .sail - 태블릿 끝 */
 
@@ -586,31 +529,6 @@
 }
 /* section6 .review - 태블릿 끝 */
 
-/* footer - 태블릿 */
-.f_sns ul{
-    flex-wrap: nowrap;
-}
-.f_sns ul li a{
-    width:64px;
-    height:64px;
-    background-size: 400px;
-}
-.f_sns .blog a{
-    background-position:-4px -8px;
-}
-.f_sns .insta a{
-    background-position:-84px -8px;
-}
-.f_sns .fb a{
-    background-position:-164px -8px;
-}
-.f_sns .youtube a{
-    background-position:-248px -8px;
-}
-.f_sns .twit a{
-    background-position:-324px -8px;
-}
-/* footer - 태블릿 끝 */
 
 }/* 태블릿화면 - (768px) 끝 */
 
@@ -640,54 +558,6 @@ h2{
     padding-bottom:20px;
     text-align: center;
 }
-/* #header - pc */
-.pc{
-    display: block;
-}
-.mo{
-    display: none;
-}
-.headerIn{
-    width:1200px;
-    margin:0 auto;
-}
-.h_logo{
-    margin:0;
-    width:100px;
-    height:50px;
-    background-color: aqua;
-}
-.h_box{
-    display: flex;
-    position: absolute;
-    right:0;
-    bottom:50px;
-}
-.pc_util ul{
-    display: flex;
-}
-.pc_util ul li{
-    margin:0 15px;
-}
-.pc_util ul li a{
-    color:#222;
-}
-.h_cart{
-    position:static; 
-    margin-left:15px;
-}
-.h_search{
-    position:static;
-    margin-right:15px;
-    width:200px;
-    background-repeat: no-repeat;
-}
-fieldset{
-    display: flex;
-}
-
-/* #header - pc  끝 */
-
 
 
 /* section1 .main_slide - pc */
@@ -770,23 +640,24 @@ fieldset{
 
 
 /* section4 .sail pc */
-.sail{
+.sailList{
     overflow:visible;
     width:1200px;
     margin : 0 auto;
     margin-bottom:100px;
 }
-.sail h2{
+.sailList h2{
     margin:0 0 30px 0;
 }
-.sail ul{
+.sailList ul{
     width:100%;
     justify-content: space-between;
     margin:0;
+    padding:0;
 }
-.sail li{
-    margin:0;
-    width:18%;
+.sailList ul li{
+	width:18%;
+    margin:0;    
 }
 /* section4 .sail pc 끝 */
 
@@ -850,21 +721,7 @@ fieldset{
 
 
 
-/* footer - pc */
-.footer_in{
-    width:1200px;
-    margin : 0 auto;
-}
-.f_tell{
-    font-size:25px;
-    line-height: 35px;
-}
 
-
-
-
-
-/* footer - pc 끝 */
 
 }/* pc화면 - (1440px) 끝 */
 

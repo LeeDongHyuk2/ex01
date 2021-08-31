@@ -12,7 +12,7 @@
 	<input type="hidden" value="${page}">
 	<p>${page }</p>
 	<ul id="productList"></ul>
-	
+	<%@include file="./footer.jsp" %>
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="../resources/js/page.js"></script>	

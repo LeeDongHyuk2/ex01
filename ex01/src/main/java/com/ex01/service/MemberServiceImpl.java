@@ -27,4 +27,9 @@ public class MemberServiceImpl implements MemberService{
 		logger.info("member login" + Member.getMember_id());
 		return Member;
 	}
+
+	@Override
+	public int idCheck(String member_id) throws Exception {
+		return mapper.idCheck(member_id);
+	}
 }

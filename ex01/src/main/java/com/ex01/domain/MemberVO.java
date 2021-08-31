@@ -18,8 +18,12 @@ public class MemberVO {
 	private String member_gender;
 	// ȸ�� ����ó
 	private String member_phone;
-	// ȸ�� �ּ�
-	private String member_address;
+	// 회원 우편번호
+	private String member_addr1;
+	// 회원 주소
+	private String member_addr2;
+	// 회원 상세 주소
+	private String member_addr3;
 	// ȸ�� �̸���
 	private String member_email;
 	// ȸ�� �����
@@ -29,7 +33,6 @@ public class MemberVO {
 	// ȸ�� 
 	private boolean member_enabled;
 	// ȸ�� ���� ����Ʈ
-	private List<AuthVO> authList;
 	public int getMember_type() {
 		return member_type;
 	}
@@ -72,11 +75,23 @@ public class MemberVO {
 	public void setMember_phone(String member_phone) {
 		this.member_phone = member_phone;
 	}
-	public String getMember_address() {
-		return member_address;
+	public String getMember_addr1() {
+		return member_addr1;
 	}
-	public void setMember_address(String member_address) {
-		this.member_address = member_address;
+	public void setMember_addr1(String member_addr1) {
+		this.member_addr1 = member_addr1;
+	}
+	public String getMember_addr2() {
+		return member_addr2;
+	}
+	public void setMember_addr2(String member_addr2) {
+		this.member_addr2 = member_addr2;
+	}
+	public String getMember_addr3() {
+		return member_addr3;
+	}
+	public void setMember_addr3(String member_addr3) {
+		this.member_addr3 = member_addr3;
 	}
 	public String getMember_email() {
 		return member_email;
@@ -102,18 +117,14 @@ public class MemberVO {
 	public void setMember_enabled(boolean member_enabled) {
 		this.member_enabled = member_enabled;
 	}
-	public List<AuthVO> getAuthList() {
-		return authList;
-	}
-	public void setAuthList(List<AuthVO> authList) {
-		this.authList = authList;
-	}
 	@Override
 	public String toString() {
 		return "MemberVO [member_type=" + member_type + ", member_id=" + member_id + ", member_pwd=" + member_pwd
 				+ ", member_name=" + member_name + ", member_birth=" + member_birth + ", member_gender=" + member_gender
-				+ ", member_phone=" + member_phone + ", member_address=" + member_address + ", member_email="
-				+ member_email + ", member_regdate=" + member_regdate + ", member_updatedate=" + member_updatedate
-				+ ", member_enabled=" + member_enabled + ", authList=" + authList + "]";
-	}	
+				+ ", member_phone=" + member_phone + ", member_addr1=" + member_addr1 + ", member_addr2=" + member_addr2
+				+ ", member_addr3=" + member_addr3 + ", member_email=" + member_email + ", member_regdate="
+				+ member_regdate + ", member_updatedate=" + member_updatedate + ", member_enabled=" + member_enabled
+				+ "]";
+	}
+	
 }

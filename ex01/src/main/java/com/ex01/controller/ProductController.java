@@ -130,7 +130,7 @@ public class ProductController {
 		ResponseEntity<List<AttachImageVO>> result = new ResponseEntity<List<AttachImageVO>>(list, HttpStatus.OK);
 		return result;
 	}
-	
+	// 제품 등록 시 선택 이미지 출력
 	@GetMapping("/display")
 	public ResponseEntity<byte[]> getImage(String fileName){
 		logger.info("getImage()...... " + fileName);
@@ -151,7 +151,7 @@ public class ProductController {
 		
 		return result;
 	}
-	
+	// 제품 등록 중 이미지 파일 삭제
 	@PostMapping("/deleteFile")
 	public ResponseEntity<String> deleteFile(String fileName){
 		logger.info("deleteFile......."+fileName);
@@ -181,7 +181,7 @@ public class ProductController {
 			return new ResponseEntity<String> ("fail", HttpStatus.NOT_IMPLEMENTED);
 		}
 	}
-	
+	// 제품 등록
 	@PostMapping("/productRegister")
 	public String productRegisterPOST(ProductVO product, RedirectAttributes rttr) {
 		logger.info("productRegister..... " + product);
@@ -195,10 +195,10 @@ public class ProductController {
 	
 	// 이미지 정보 반환
 	@GetMapping(value ="/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<AttachImageVO>> getAttachList(int product_id){
-		logger.info("getAttachList ....... " + product_id);
+	public ResponseEntity<List<AttachImageVO>> getAttachList(int product_no){
+		logger.info("getAttachList ....... " + product_no);
 		
-		return new ResponseEntity<List<AttachImageVO>>(mapper.getAttachList(product_id), HttpStatus.OK);
+		return new ResponseEntity<List<AttachImageVO>>(mapper.getAttachList(product_no), HttpStatus.OK);
 	}
 	
 	// 상품 조회 페이지

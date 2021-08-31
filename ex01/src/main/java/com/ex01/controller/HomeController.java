@@ -60,6 +60,14 @@ public class HomeController {
 		logger.info("getHotList");
 		return new ResponseEntity<>(pservice.getHotList(), HttpStatus.OK);
 	}
+	// 세일리스트 출력
+	@GetMapping(value="getSailList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<ArrayList<ProductVO>> getSailList(){
+		logger.info("getSailList");
+		return new ResponseEntity<>(pservice.getSailList(), HttpStatus.OK);
+	}
+	
 	// gnb ������ �̵�
 	@GetMapping(value="/list/{page}")
 	public String movePage(@PathVariable("page") String page) {
@@ -75,5 +83,10 @@ public class HomeController {
 	@GetMapping(value="productRegister")
 	public String productRegister() {
 		return "productRegister";
+	}
+	
+	@GetMapping("myPage")
+	public String myPage() {
+		return "myPage";
 	}
 }

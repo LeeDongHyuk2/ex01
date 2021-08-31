@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,7 +97,7 @@ legend{
     bottom:40px;
 }
 .h_search .search{
-    background-image: url(../img/icon_search.png);
+    background-image: url(/resources/img/icon_search.png);
     border:none;
     height:20px;
     width:20px;
@@ -110,7 +111,7 @@ legend{
     text-indent: -99999px;
     width:22px;
     height:20px;
-    background-image: url(../img/icon_cart.png);
+    background-image: url(/resources/img/icon_cart.png);
 }
 
 /* #header - 모바일 끝 */
@@ -189,11 +190,12 @@ legend{
 <body>
 <header id="header">
             <div class="headerIn">
-                <div class="h_logo">가구쇼핑몰</div><!--.logo-->
+                <a href="/"><div class="h_logo">가구쇼핑몰</div></a><!--.logo-->
+                
                 <nav class="gnb">
                     <ul>
-                        <li><a href="/list/best">베스트</a></li>
-                        <li><a href="/list/new">신상</a></li>
+                        <li><a href="/listBest">베스트</a></li>
+                        <li><a href="/listNew">신상</a></li>
                         <li><a href="/list/chair">의자</a></li>
                         <li><a href="/list/table">테이블</a></li>
                         <li><a href="/list/cabinet">수납장</a></li>
@@ -229,7 +231,7 @@ legend{
 									<a href="/member/logout">로그아웃</a>
 								</c:if>
 							</li>
-                            <li><a href="">마이페이지</a></li>
+                            <li><a href="/myPage">마이페이지</a></li>
                         </ul>                                             
                     </div><!--.pc_util-->                    
                     <p class="h_cart"><a href="#">장바구니</a></p>   
