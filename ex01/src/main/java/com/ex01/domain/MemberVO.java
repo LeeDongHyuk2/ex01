@@ -1,22 +1,21 @@
 package com.ex01.domain;
 
 import java.util.Date;
-import java.util.List;
 // 회원 VO
 public class MemberVO {
-	// ȸ�� ����
+	// 회원 구분
 	private int member_type;
-	// ȸ�� ���̵�
+	// 회원 아이디
 	private String member_id;
-	// ȸ�� ��й�ȣ
+	// 회원 비밀번호
 	private String member_pwd;
-	// ȸ�� �̸�
+	// 회원 이름
 	private String member_name;
-	// ȸ�� �������
+	// 회원 생년월일
 	private String member_birth;
-	// ȸ�� ����
+	// 회원 성별
 	private String member_gender;
-	// ȸ�� ����ó
+	// 회원 전화번호
 	private String member_phone;
 	// 회원 우편번호
 	private String member_addr1;
@@ -24,13 +23,13 @@ public class MemberVO {
 	private String member_addr2;
 	// 회원 상세 주소
 	private String member_addr3;
-	// ȸ�� �̸���
+	// 회원 이메일
 	private String member_email;
-	// ȸ�� �����
+	// 회원 등록날짜
 	private Date member_regdate;
-	// ȸ�� �ֱ� ������
+	// 회원 정보수정날짜
 	private Date member_updatedate;
-	// ȸ�� 
+	// 회원 아이디사용유무
 	private boolean member_enabled;
 	// ȸ�� ���� ����Ʈ
 	public int getMember_type() {

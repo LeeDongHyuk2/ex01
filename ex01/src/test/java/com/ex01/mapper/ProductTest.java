@@ -46,7 +46,7 @@ public class ProductTest {
 	@Test
 	public void getAttachListTests() {
 		int product_no = 8;
-		//System.out.println("이미지 정보 : " + mapper.getAttachList(product_no));
+		System.out.println("이미지 정보 : " + mapper.getAttachList(product_no));
 	}
 	
 	// 상품 조회

@@ -23,25 +23,26 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	@Autowired
 	private MemberService service;
-	
+	// 로그인 페이지 이동
 	@RequestMapping(value="login", method = RequestMethod.GET)	
 	public String login() {
 		logger.info("login page.");		
 		return "login";
 	}
-	
+	// 회원가입 페이지 이동
 	@RequestMapping(value="join", method = RequestMethod.GET)
 	public String join() {
 		logger.info("join page.");		
 		return "join";
 	}
-	
+	// 회원가입
 	@PostMapping("join")
 	public String joinPost(MemberVO member) {		
 		service.join(member);
 		logger.info("join" + member);
 		return "redirect:/";
 	}
+	// 로그인
 	@PostMapping("login")
 	public String loginPost(MemberVO Member, HttpServletRequest req, RedirectAttributes rttr) {
 		HttpSession session = req.getSession();
@@ -56,6 +57,7 @@ public class MemberController {
 		logger.info(""+session.getAttribute("member"));
 		return "redirect:/";
 	}
+	// 로그아웃
 	@GetMapping("logout")
 	public String logout(HttpServletRequest req, RedirectAttributes rttr) {
 		HttpSession session = req.getSession();
@@ -63,13 +65,11 @@ public class MemberController {
 		logger.info("user logout");
 		return "redirect:/";
 	}
-	
+	// 아이디 유효성 확인
 	@PostMapping("/memberIdChk")
 	@ResponseBody
 	public String memberIdChkPOST(String member_id) throws Exception{
-		logger.info("memberIdChk : " + member_id);
 		int result = service.idCheck(member_id);
-		logger.info("memberIdChk 결과  : "+result);
 		if(result != 0) {
 			return "fail";
 		}else {
