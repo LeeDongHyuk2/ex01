@@ -82,7 +82,7 @@ $(document).ready(function(){
 		if(arr.length === 0){
 			let str = "";
 			str += "<div id = 'result_card'>";
-			str += "<input type='hidden' value'"+product_no+"'>"
+			str += "<input type='hidden' value='"+product_no+"' name='product_no'>"
 			str += "<img src = '/resources/img/productNoImage.png'>";
 			str += "</div>";
 			

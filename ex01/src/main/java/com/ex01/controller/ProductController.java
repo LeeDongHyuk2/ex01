@@ -209,4 +209,5 @@ public class ProductController {
 		model.addAttribute("productInfo", pservice.productGetDetail(product_no));
 		return "productDetail";
 	}
+
 }

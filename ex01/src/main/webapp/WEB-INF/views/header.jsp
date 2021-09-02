@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <style>
@@ -49,6 +51,12 @@ legend{
 }
 
 /* #header - 모바일 */
+.pc{
+	display:none;
+}
+#header{
+	background-color:rgb(244,204,121);
+}
 .headerIn{
     height:90px;
     position:relative;
@@ -56,12 +64,15 @@ legend{
 }
 .h_logo{
     margin:0 auto;
-    width:100px;
-    height:50px;
-    background-color:red;
+    width:130px;
+    height:60px;
+    background-image: url(/resources/img/logo.png);
+    background-size:130px;
+    background-repeat:no-repeat;
+    text-indent: -99999px;
+    display: block;
 }
 .gnb ul{
-    background-color: beige;
     width:200%;
     position:absolute;
     bottom:0;
@@ -97,6 +108,7 @@ legend{
     bottom:40px;
 }
 .h_search .search{
+    background-color:rgb(244,204,121);
     background-image: url(/resources/img/icon_search.png);
     border:none;
     height:20px;
@@ -114,6 +126,55 @@ legend{
     background-image: url(/resources/img/icon_cart.png);
 }
 
+
+	/* #side - 모바일 */
+	#side{
+	    width:100%;
+	    height:100%;
+	    position:fixed;
+	    top:0;
+	    left:-100%;
+	    background-color:#fff;
+	    z-index:999;
+	    overflow-y:scroll;
+	}
+	.s_login{
+	    background-color:chocolate;
+	    height:60px;
+	    font-weight:bold;
+	}
+	.s_login a{
+	    display: block;
+	    color:#fff;
+	    padding-left : 30px;
+	    font-size:16px;
+	    line-height:60px;
+	}
+	.s_m1{
+	    border-bottom:1px solid #bbb;
+	}
+	.s_m1 a{
+	    display: block;
+	    padding:15px;
+	    font-size:15px;
+	    color:chocolate;
+	}
+	.s_close{
+	    position:absolute;
+	    top:0;
+	    right:0;
+	}
+	.s_close a{
+	    display: block;
+	    width:60px;
+	    height:60px;
+	    text-indent: -99999px;
+	    background-image:url(../img/close2.png);
+	    background-size: 25px auto;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	}
+	/* #side - 모바일 끝 */
 /* #header - 모바일 끝 */
 
 
@@ -128,6 +189,9 @@ legend{
 	    padding:0 15px;
 	    color:#222;
 	}
+	#side{
+		width: 80%;
+	}
 }
 /* #header - 태블릿 끝*/
 
@@ -136,7 +200,7 @@ legend{
 @media screen and (min-width:1200px){
 	
 	.pc{
-	    display: block;
+    display: block;
 	}
 	.mo{
 	    display: none;
@@ -147,9 +211,6 @@ legend{
 	}
 	.h_logo{
 	    margin:0;
-	    width:100px;
-	    height:50px;
-	    background-color: aqua;
 	}
 	.h_box{
 	    display: flex;
@@ -179,18 +240,16 @@ legend{
 	fieldset{
 	    display: flex;
 	}
-	}
-	/* #header - pc  끝 */
-	
-
-/* #header - 태블릿 끝 */
+}
+/* #header - pc  끝 */
 
 </style>
 
 <body>
 <header id="header">
             <div class="headerIn">
-                <a href="/"><div class="h_logo">가구쇼핑몰</div></a><!--.logo-->
+                <a href="/" class="h_logo">가구사이트</a><!--.logo-->
+                
                 
                 <nav class="gnb">
                     <ul>
@@ -238,5 +297,55 @@ legend{
                 </div><!--.h_box-->                
             </div><!--.headerIn-->
         </header><!--#header-->
+        
+        
+<div id="side" class="mo"><!-- 사이드 아코디언 메뉴 -->
+    <div class="s_login">
+        <a href="#">로그인</a>
+    </div>
+    <div class="s_m1">
+        <a href="#">회원가입</a>
+    </div>
+    <div class="s_m1">
+        <a href="#">마이페이지</a>
+    </div>
+    <div class="s_m1">
+        <a href="#">공지사항</a>
+    </div>
+    <div class="s_m1">
+        <a href="#">고객문의</a>
+    </div>
+    <div class="s_m1">
+        <a href="#">주문조회</a>
+    </div>
+    <div class="s_m1">
+        <a href="#">카톡상담</a>
+    </div>
+    <div class="s_close"><a href="#">사이드 닫기</a></div><!--.s_close-->
+    </div><!--#side--> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+ // 모바일, 태블릿에서 죄측상단 메뉴(.mo_menu) 클릭시(사이드 아코디언 메뉴)
+    $('.mo_menu').click(function(){
+        $('#side').animate({
+            left:'0'
+        })
+        $('#wrap').css({
+            position:'fixed'
+        })
+        return false;
+    })
+
+    // 메뉴목록에서 X(.s_close) 클릭시(아코디언메뉴 종료)
+    $('.s_close').click(function(){
+        $('#side').animate({
+            left:'-100%'
+        })
+        $('#wrap').css({
+            position:'relative'
+        })
+        return false;
+    })
+    </script>       
 </body>
 </html>

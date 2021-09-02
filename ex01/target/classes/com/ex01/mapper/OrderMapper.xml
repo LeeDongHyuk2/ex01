@@ -8,4 +8,11 @@
 		INSERT INTO tbl_order(order_id, product_no, order_name, order_stock, order_price, order_addr1, order_addr2, order_addr3, order_phone1, order_phone2, order_memo, order_pay, order_bank, order_account)
 		VALUES(#{order_id},#{product_no},#{order_name},#{order_stock},#{order_price},#{order_addr1},#{order_addr2},#{order_addr3},#{order_phone1},#{order_phone2},#{order_memo},#{order_pay},#{order_bank},#{order_account});
 	</insert>
+	
+	<!-- 내가 주문한 완료되지 않은 상품 리스트 -->
+	<select id = "getMyProduct" resultType = "com.ex01.domain.OrderVO">
+		SELECT *
+		FROM tbl_order
+		WHERE order_id = #{member_id} AND order_enddate IS NULL;
+	</select>
 </mapper>

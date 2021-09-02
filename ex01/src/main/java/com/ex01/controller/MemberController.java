@@ -44,17 +44,18 @@ public class MemberController {
 	}
 	// 로그인
 	@PostMapping("login")
-	public String loginPost(MemberVO Member, HttpServletRequest req, RedirectAttributes rttr) {
+	public String loginPost(MemberVO member, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+		logger.info("member : " + member);
+		
 		HttpSession session = req.getSession();
-		MemberVO login = service.login(Member);
-		logger.info("post login - id = " + Member.getMember_id() + " pwd = " + Member.getMember_pwd());
+		MemberVO login = service.memberLogin(member);
 		if(login == null) {
-			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
-		}else {
-			session.setAttribute("member", login);
+			int result = 0;
+			rttr.addFlashAttribute("result", result);
+			return "redirect:/member/login";
 		}
-		logger.info(""+session.getAttribute("member"));
+		session.setAttribute("member", login);
+		
 		return "redirect:/";
 	}
 	// 로그아웃

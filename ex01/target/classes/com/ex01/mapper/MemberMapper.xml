@@ -10,8 +10,8 @@
 	</insert>
 	
 	<!-- 로그인 -->
-	<select id="login" resultType="com.ex01.domain.MemberVO">
-		SELECT member_id, member_pwd
+	<select id="memberLogin" resultType="com.ex01.domain.MemberVO">
+		SELECT *
 		FROM member
 		WHERE member_id = #{member_id} AND member_pwd = #{member_pwd}
 	</select>
@@ -22,4 +22,6 @@
 		FROM member
 		WHERE member_id = #{member_id};
 	</select>
+	
+	
 </mapper>

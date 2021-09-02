@@ -5,9 +5,7 @@
 <html lang="ko">
 <head>
 	<meta http-equiv="Content-Type" content="text/html charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="/resources/js/slick-1.8.1/slick/slick.css">
     <link rel="stylesheet" href="/resources/js/slick-1.8.1/slick/slick-theme.css">
     <link rel="stylesheet" href="/resources/css/style.css">
@@ -213,31 +211,6 @@
 		<%@include file="./footer.jsp" %>
     </div><!--#wrap-->
 
-
-    <div id="side" class="mo"><!-- 사이드 아코디언 메뉴 -->
-        <div class="s_login">
-            <a href="#">로그인</a>
-        </div>
-        <div class="s_m1">
-            <a href="#">회원가입</a>
-        </div>
-        <div class="s_m1">
-            <a href="#">마이페이지</a>
-        </div>
-        <div class="s_m1">
-            <a href="#">공지사항</a>
-        </div>
-        <div class="s_m1">
-            <a href="#">고객문의</a>
-        </div>
-        <div class="s_m1">
-            <a href="#">주문조회</a>
-        </div>
-        <div class="s_m1">
-            <a href="#">카톡상담</a>
-        </div>
-        <div class="s_close"><a href="#">사이드 닫기</a></div><!--.s_close-->
-    </div><!--#slide-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../resources/js/slick-1.8.1/slick/slick.js"></script>
     <script src="../resources/js/main.js"></script>

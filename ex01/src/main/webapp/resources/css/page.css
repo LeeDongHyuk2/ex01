@@ -1,0 +1,63 @@
+@charset "UTF-8";
+#wrap{
+	width:100%;
+}
+.itemList{
+	padding:0 10px;
+	margin:40px 0;
+}
+.itemList ul{
+	display:flex;
+	flex-wrap:wrap;
+	width:100%;
+	padding: 0 10px;
+	box-sizing:border-box;
+	justify-content: space-between;
+}
+.itemList li{
+	width:48%;
+	margin-bottom:20px;
+}
+.itemList a{
+	color:#222;
+}
+.itemList li img{
+	width:100%;
+	height:auto;
+}
+
+/* 태블릿화면 - (768px)기준 */
+@media screen and (min-width:768px){
+	/* 태블릿화면 - (768px)기준  끝 */
+	.itemList{
+		padding: 0 10px;
+	}
+	.itemList ul{
+		width:100%;
+		flex-wrap:wrap;
+		padding:0;
+	}
+	.itemList ul li{
+		margin:0 10px;
+	}
+	
+}
+
+
+/* pc화면 - (1200px) 기준 */
+@media screen and (min-width:1200px){
+	.itemList{
+		width:1200px;
+		margin:100px auto;
+	}
+	.itemList ul{
+		width:100%;
+		justify-content : unset;
+		margin:0;
+		padding:0;
+	}
+	.itemList ul li{
+		width:16%;
+		margin:0 1.5%;
+	}
+}

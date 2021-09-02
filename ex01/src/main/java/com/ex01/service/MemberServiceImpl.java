@@ -23,9 +23,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberVO login(MemberVO Member) {		
-		logger.info("member login" + Member.getMember_id());
-		return Member;
+	public MemberVO memberLogin(MemberVO Member) throws Exception {		
+		return mapper.memberLogin(Member);
 	}
 
 	@Override

@@ -1,5 +1,8 @@
 package com.ex01.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +23,13 @@ public class OrderServiceImpl implements OrderService {
 		logger.info("order : " + order);
 		omapper.insertOrder(order);		
 	}
+	
+	@Override
+	public ArrayList<OrderVO> getMyProduct(String member_id) {
+		logger.info("member_id : " + member_id);
+		return omapper.getMyProduct(member_id);
+	}
+	
+	
 	
 }

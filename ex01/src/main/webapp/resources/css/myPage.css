@@ -1,0 +1,29 @@
+@charset "UTF-8";
+#wrap{
+	width : 100%;
+}
+#container{
+	width:1200px;
+	margin:0 auto;
+	background-color:yellow;
+
+}
+.myBox{
+	display: flex;
+	justify-content: space-between;
+	backgorund:aqua;
+}
+.myList{
+	width:20%;
+	background-color:aqua;
+}
+.listPage{
+	width:80%;
+}
+.list_order{
+	display:flex;
+	justify-content: space-between;
+}
+p{
+	font-weight: bold;
+}

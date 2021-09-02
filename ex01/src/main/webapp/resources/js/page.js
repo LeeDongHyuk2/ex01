@@ -23,7 +23,7 @@ $(document).ready(function(){
 					str += "<p class='item_memo'>"+product.product_memo+"</p>"
 					str += "</a></li>"
 				}
-				$("#productList").append(str);
+				$(".itemList ul").append(str);
 				str="";
 			})
 		});
