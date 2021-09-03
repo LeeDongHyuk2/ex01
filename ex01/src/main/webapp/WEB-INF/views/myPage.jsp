@@ -17,27 +17,27 @@
 				<div class="myShopping">
 					<p>내 쇼핑</p>
 					<ul>
-						<li>주문목록/배송조회</li>						
-						<li>취소/반품/교환/환불 내역</li>
-						<li>영수증 조회/출력</li>
+						<a href=""><li>주문목록/배송조회</li></a>
+						<a href=""><li>취소/반품/교환/환불 내역</li></a>
+						<a href=""><li>영수증 조회/출력</li></a>
 					</ul>
 				</div>
 				<div class="myActive">
 					<p>내 활동</p>
 					<ul>
-						<li>문의하기</li>
-						<li>문의내역 확인</li>
-						<li>리뷰관리</li>
-						<li>좋아요 리스트</li>
+						<a href=""><li>문의하기</li></a>
+						<a href=""><li>문의내역 확인</li></a>
+						<a href=""><li>리뷰관리</li></a>
+						<a href=""><li>좋아요 리스트</li></a>
 					</ul>					
-				</div>
+				</div><!-- .myActive -->
 				<div class="myInfo">
 					<p>개인정보</p>
 					<ul>
-						<li>개인정보확인/수정</li>
-						<li>배송지 관리</li>
+						<a href=""><li>개인정보확인/수정</li></a>
+						<a href=""><li>배송지 관리</li></a>
 					</ul>
-				</div>
+				</div><!-- .myInfo -->
 			</div>			
 			<div class="listPage">
 				<div class="list_order">

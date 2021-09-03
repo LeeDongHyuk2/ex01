@@ -121,6 +121,7 @@ h1{
 @media screen and (min-width:1200px){
 		#container{
 		width : 30%;
+		max-width : 500px;
 	}
 }
 

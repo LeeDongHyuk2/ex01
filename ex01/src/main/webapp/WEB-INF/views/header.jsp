@@ -18,7 +18,7 @@
 }
 body{
     font-family: 'Noto Sans KR', sans-serif;
-    font-size:13px;
+    font-size:17px;
     line-height:20px;
     color:#222;
 }
@@ -290,7 +290,14 @@ legend{
 									<a href="/member/logout">로그아웃</a>
 								</c:if>
 							</li>
-                            <li><a href="/myPage">마이페이지</a></li>
+                            <li>
+                            	<c:if test="${member == null}">
+                            		<a href="/member/login">마이페이지</a>
+                            	</c:if>
+                            	<c:if test="${member != null}">
+									<a href="/myPage">마이페이지</a>
+								</c:if>
+                            </li>
                         </ul>                                             
                     </div><!--.pc_util-->                    
                     <p class="h_cart"><a href="#">장바구니</a></p>   

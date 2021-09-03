@@ -40,6 +40,7 @@ legend{
 /* 브라우저 초기화 끝 */
 #wrap{
 	width:100%;
+	padding:0;
 }
 .logo{
 	display:block;
@@ -54,11 +55,11 @@ legend{
 #container{
 	width:100%;
 	border:1px #bbb solid;
-	padding:50px 20px;
+	padding:50px 10px;
 }
 h1{
 	text-align : center;
-	margin-bottom:50px;		
+	margin-bottom:50px;	
 }
 .input_text{
 	width: 100%;
@@ -118,8 +119,9 @@ h1{
 
 /* pc화면 - (1200px) 기준 */
 @media screen and (min-width:1200px){
-	#container{
+	#container{	
 		width : 30%;
+		max-width : 500px;
 	}
 }
 
