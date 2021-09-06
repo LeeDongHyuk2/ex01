@@ -15,17 +15,28 @@ $(document).ready(function(){
 		}
 		let str = "";
 		$(arr).each(function(i, product){
-			console.log(arr);
+			str += "<input type='hidden' value="+arr[i].product_no+" class='product_no'>"
 			str += "<div class='list_order'><div><p>"+arr[i].order_regdate+"</p></div>";
 			str += "<div><img><p>"+arr[i].order_name+"</p>";
-			str += "<p>"+arr[i].order_amount+"</p>";
+			str += "<p>"+arr[i].order_stock+"</p>";
 			str += "<p>"+arr[i].order_price+"</p></div>";
 			str += "<div><p>"+arr[i].order_name+"</p></div>";
-			str += "<div><p>order_statement</p>";
-			str += "<button>배송조회</button><button>주문취소</button></div></div>"	
+			str += "<div><p>"+arr[i].order_statement+"</p>";
+			str += "<button>배송조회</button>";
+			if(arr[i].order_statement == '배송완료'){
+				str += "<input type='button' class='review' value='리뷰달기'><button class='refund'>제품반품</button>";
+			}else{
+				str += "<button class='orderCancel'>주문취소</button>";
+			}
+			str += "</div></div>";
 		});// each
 		listPage.html(str);
 		
 	});
 	
+});
+
+$(document).on('click','.review', function(){
+	product_no = $('.product_no').val();
+	location.replace('/order/review?product_no='+product_no);
 });

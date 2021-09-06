@@ -50,14 +50,14 @@ public class HomeController {
 	@GetMapping(value="getNewList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<ArrayList<ProductVO>> getNewList(){
-		logger.info("getNewList");
+		logger.info("getNewList.....");
 		return new ResponseEntity<>(pservice.getNewList(), HttpStatus.OK);
 	}
 	// �⺻ȭ�鿡�� �α��ǰ ����Ʈ ���
 	@GetMapping(value="getHotList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<ArrayList<ProductVO>> getHotList(){
-		logger.info("getHotList");
+		logger.info("getHotList.....");
 		return new ResponseEntity<>(pservice.getHotList(), HttpStatus.OK);
 	}
 	// 세일리스트 출력

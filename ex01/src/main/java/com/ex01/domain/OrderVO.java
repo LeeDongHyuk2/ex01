@@ -37,6 +37,14 @@ public class OrderVO {
 	private Date order_regdate;
 	// 주문 완료 날짜
 	private Date order_enddate;
+	// 주문 상태
+	private String order_statement;
+	public String getOrder_statement() {
+		return order_statement;
+	}
+	public void setOrder_statement(String order_statement) {
+		this.order_statement = order_statement;
+	}
 	public int getOrder_no() {
 		return order_no;
 	}
@@ -146,7 +154,8 @@ public class OrderVO {
 				+ ", order_addr1=" + order_addr1 + ", order_addr2=" + order_addr2 + ", order_addr3=" + order_addr3
 				+ ", order_phone1=" + order_phone1 + ", order_phone2=" + order_phone2 + ", order_memo=" + order_memo
 				+ ", order_pay=" + order_pay + ", order_bank=" + order_bank + ", order_account=" + order_account
-				+ ", order_regdate=" + order_regdate + ", order_enddate=" + order_enddate + "]";
+				+ ", order_regdate=" + order_regdate + ", order_enddate=" + order_enddate + ", order_statement="
+				+ order_statement + "]";
 	}
 	
 }

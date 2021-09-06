@@ -15,4 +15,26 @@
 		FROM tbl_order
 		WHERE order_id = #{member_id} AND order_enddate IS NULL;
 	</select>
+	
+	<!-- 리뷰 등록 -->
+	<insert id = "reviewRegister">
+		<selectKey resultType="int" keyProperty="review_no" order="AFTER">
+			SELECT MAX(review_no) FROM review;
+			<!-- SELECT LAST_INSERT_ID; -->
+		</selectKey>
+		INSERT INTO review(review_title, review_content, product_no, member_id)
+		VALUES (#{review_title}, #{review_content}, #{product_no}, #{member_id});
+	</insert>
+	
+	<!-- 상품 이미지 등록 -->	
+	<insert id="rimgRegister">
+		INSERT INTO product_img(product_no, fileName, uploadPath, uuid, type)
+		VALUES (#{product_no}, #{fileName}, #{uploadPath}, #{uuid}, 'r')
+	</insert>
+	
+	<select id="getReview" resultType="com.ex01.domain.ReviewVO">
+		SELECT *
+		FROM review
+		WHERE product_no = #{product_no};
+	</select>
 </mapper>

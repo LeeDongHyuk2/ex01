@@ -81,3 +81,10 @@
 	color:#fff; 
 	border:0;
 }
+#product_memo{
+	border-bottom:1px solid #bbb;
+}
+.review{
+	margin:10px;
+	border-bottom:1px solid #bbb;	
+}

@@ -62,7 +62,6 @@
 				${productInfo.product_memo }
 			</div>
 			<div id = "product_review">
-				리뷰칸
 			</div>
 		</form>
 	</div><!-- #container -->

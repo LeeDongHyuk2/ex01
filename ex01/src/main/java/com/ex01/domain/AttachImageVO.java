@@ -9,6 +9,14 @@ public class AttachImageVO {
 	private String fileName;
 	// 상품 id
 	private int product_no;
+	// 이미지 첨부 위치
+	private String type;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public String getUploadPath() {
 		return uploadPath;
 	}
@@ -36,6 +44,6 @@ public class AttachImageVO {
 	@Override
 	public String toString() {
 		return "AttachImageVO [uploadPath=" + uploadPath + ", uuid=" + uuid + ", fileName=" + fileName + ", product_no="
-				+ product_no + "]";
+				+ product_no + ", type=" + type + "]";
 	}
 }

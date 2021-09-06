@@ -5,6 +5,7 @@
 $(document).ready(function(){
 	let product_no = $("input[type='hidden']").val();
 	let uploadResult = $("#uploadResult");
+	let productReview =$("#product_review");
 	
 	$.getJSON("/product/getAttachList", {product_no : product_no}, function(arr){
 		if(arr.length === 0){
@@ -31,8 +32,30 @@ $(document).ready(function(){
 		str += "</div>";
 		
 		uploadResult.html(str);
-	});
-	$('.product_price').val(price);
+	});// getJSON("product/getAttachList")
+	
+	$('.product_price').val(price);	
+	
+	$.getJSON("/order/getReview", {product_no : product_no}, function(arr){
+		if(arr.length === 0){
+			let str = "";
+			str += "<p>리뷰가 없습니다.</p>"
+				
+			productReview.append(str);
+			return
+		}
+		$(arr).each(function(i, review){			
+			let str = "";
+			
+			str += "<div class='review'><p>"+review.member_id+"</p>"
+			str += "<p>"+review.review_title+"</p>"
+			str += "<p>"+review.review_content+"</p>"
+			
+			productReview.append(str);
+			str="";
+		});// foreach
+	});// getJSON("/order/getReview")
+	
 });
 
 let amount = $('.amount').val();

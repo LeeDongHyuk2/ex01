@@ -281,7 +281,12 @@ legend{
                         </form>  
                     </div>      
                     <div class="pc_util pc">
-                        <ul>                        
+                        <ul>
+                        	<c:if test = "${member.member_type == 1 }">                    
+	                            <li>
+	                            	<a href="/productRegister">판매</a>
+	                            </li>
+                            </c:if>
                             <li>
                            		<c:if test="${member == null}">
 									<a href="/member/login">로그인</a>
