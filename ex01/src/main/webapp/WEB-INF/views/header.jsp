@@ -254,7 +254,6 @@ legend{
                 <nav class="gnb">
                     <ul>
                         <li><a href="/listBest">베스트</a></li>
-                        <li><a href="/listNew">신상</a></li>
                         <li><a href="/list/chair">의자</a></li>
                         <li><a href="/list/table">테이블</a></li>
                         <li><a href="/list/cabinet">수납장</a></li>

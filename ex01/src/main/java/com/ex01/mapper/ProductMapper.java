@@ -3,6 +3,8 @@ package com.ex01.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ex01.domain.AttachImageVO;
 import com.ex01.domain.ProductVO;
 
@@ -20,7 +22,7 @@ public interface ProductMapper {
 	// 상품 이미지 등록
 	public void pimgRegister(AttachImageVO vo);
 	// 이미지 데이터 반환
-	public List<AttachImageVO> getAttachList(int product_no);
+	public List<AttachImageVO> getAttachList(@Param("product_no")int product_no, @Param("type")String type);
 	// 상품 조회
 	public ProductVO productGetDetail(int product_no);
 }

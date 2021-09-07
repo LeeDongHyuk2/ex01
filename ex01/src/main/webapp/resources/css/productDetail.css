@@ -68,11 +68,26 @@
 	border:1px #aaa solid;
 	width:50px;
 }
+.total_price_box{
+	padding:20px 0;
+}
+.total_price{
+	border:0;
+	font-size:40px;
+	font-weight: bolder;
+	line-height:50px;
+	display:inline;
+}
+
 .submit_button{
 	border-top : 1px #ddd solid;
 	margin:20px 0;
 	display:flex;
 	justify-content: space-around;
+}
+.no_login{
+	display: block;
+	width:48%;
 }
 .submit_buttons{
 	width:48%;
@@ -81,6 +96,9 @@
 	color:#fff; 
 	border:0;
 }
+.no_login .submit_buttons{
+	width: 100%;
+} 
 #product_memo{
 	border-bottom:1px solid #bbb;
 }

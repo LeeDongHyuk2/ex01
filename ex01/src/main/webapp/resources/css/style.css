@@ -145,7 +145,7 @@
     height:auto;
 }
 .sailList li a::after{
-    content: "20%";
+    content: "";
     font-size:15px;
     line-height: 50px;
     text-align: center;

@@ -20,23 +20,23 @@
 					<ul>
 						<li>
 							<span>제품 이름</span>
-							<input value='${productInfo.product_name }'>
+							<input value='${productInfo.product_name }' readonly="readonly">
 						</li>
 						<li>
 							<span>제품 가격</span>
-							<input value='${productInfo.product_price }' name="order_price" class="product_price">							
+							<input value='${order_price }' name="order_price" class="product_price" readonly="readonly">
 						</li>
 						<!-- <li>
 							<span>제조사</span>
 							<input value='${productInfo.product_price }' name="order_price">
 						</li> -->
 						<li>
-							<span>재고</span>
-							<input value=${productInfo.product_stock }>
+							<span>구매수량</span>
+							<input value=${order_stock } readonly="readonly" name="order_stock">
 						</li>
 						<li>
 							<span>할인율</span>
-							<input value=${productInfo.product_discount }>
+							<input value=${productInfo.product_discount } readonly="readonly">
 						</li>
 						<li>
 							<span>배송분류</span>
@@ -47,18 +47,6 @@
 							<span>2000원 (50,000원 이상 구매 시 무료)</span>
 						</li>
 					</ul>
-				</div>
-				<div class="shFee_box">
-					
-				</div>
-				<div class="amount">
-					<input type="text" name="order_stock" readonly="readonly" class="amount" value=5>
-				</div>
-				<div class="discount">
-					<input value=${productInfo.product_discount } class="discount">
-				</div>
-				<div class="price">
-					상품금액(할인포함)
 				</div>
 			</div>
 		<div>

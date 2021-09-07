@@ -171,37 +171,9 @@
                 </ul>
             </div><!--.sns-->
 
-
             <div class="review">
                 <h2>리얼후기</h2>
                 <ul>
-                    <li>
-                        <a href="">
-                            <img src="./img/review_01.jpg" alt="">
-                            <div class="review_content">
-                                <h3>제목</h3>
-                                <p>내용</p>
-                            </div>
-                        </a>                        
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/review_02.jpg" alt="">
-                            <div class="review_content">
-                                <h3>제목</h3>
-                                <p>내용</p>
-                            </div>
-                        </a>                        
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/review_03.jpg" alt="">
-                            <div class="review_content">
-                                <h3>제목</h3>
-                                <p>내용</p>
-                            </div>
-                        </a>                        
-                    </li>
                 </ul>
                 <p class="review_more"><a href="">더보기</a></p>
             </div><!--.review-->

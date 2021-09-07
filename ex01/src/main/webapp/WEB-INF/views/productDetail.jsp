@@ -27,7 +27,7 @@
 							<c:if test="${productInfo.product_discount != 0 }">
 								<span class="discount">${productInfo.product_discount }</span>
 								<span> %</span>
-								<span class="text_overline">${productInfo.product_price }</span>
+								<span class="text_overline">${productInfo.product_price }</span><br>
 							</c:if>
 							<input class="product_price" value='${productInfo.product_price }' readonly="readonly">
 						</li>
@@ -44,14 +44,22 @@
 						</li>
 					</ul>
 					<div class="amount_box">
-						<input class="amount" value=1 readonly="readonly">
+						<input class="amount" value=1 readonly="readonly" name="amount">
 						<div class="amount_updown">
 							<p class="amount_up amount_button">업업</p>
 							<p class="amount_down amount_button">다운</p>
 						</div><!-- .amount_updown -->
 					</div><!-- .amount_box -->
+					<div class="total_price_box">
+						<input class="total_price" value='0' readonly="readonly" name="total_price">
+					</div>
 					<div class="submit_button">
+					<c:if test="${member.member_id != null }">
 						<input type="submit" value="구매하기" class="submit_buttons">
+					</c:if>
+					<c:if test="${member.member_id == null }">
+						<a href="/member/login?no_login=true" class="no_login"><input type="button" value="구매하기" class="submit_buttons"></a>
+					</c:if>
 						<button class="sh_basket submit_buttons">장바구니</button>
 					</div>	
 				</div><!-- #product_cont -->

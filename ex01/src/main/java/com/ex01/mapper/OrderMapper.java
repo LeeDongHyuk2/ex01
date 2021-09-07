@@ -17,4 +17,6 @@ public interface OrderMapper {
 	public void rimgRegister(AttachImageVO vo);
 	// 상세페이지 리뷰 출력 리스트
 	public ArrayList<ReviewVO> getReview(int product_no);
+	// index페이지 리뷰 출력 리스트
+	public ArrayList<ReviewVO> getIndexReview();
 }

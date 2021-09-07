@@ -7,7 +7,7 @@ $(document).ready(function(){
 	let uploadResult = $("#uploadResult");
 	let productReview =$("#product_review");
 	
-	$.getJSON("/product/getAttachList", {product_no : product_no}, function(arr){
+	$.getJSON("/product/getAttachList", {product_no : product_no, type : 'p'}, function(arr){
 		if(arr.length === 0){
 			let str = "";
 			str += "<div id = 'result_card'>";
@@ -34,7 +34,12 @@ $(document).ready(function(){
 		uploadResult.html(str);
 	});// getJSON("product/getAttachList")
 	
-	$('.product_price').val(price);	
+	$('.product_price').val(price);
+	if(price < 50000){
+		$('.total_price').val(price + 2000);
+	}else{
+		$('.total_price').val(price);
+	}
 	
 	$.getJSON("/order/getReview", {product_no : product_no}, function(arr){
 		if(arr.length === 0){
@@ -45,14 +50,29 @@ $(document).ready(function(){
 			return
 		}
 		$(arr).each(function(i, review){			
-			let str = "";
-			
-			str += "<div class='review'><p>"+review.member_id+"</p>"
-			str += "<p>"+review.review_title+"</p>"
-			str += "<p>"+review.review_content+"</p>"
-			
-			productReview.append(str);
-			str="";
+
+			// 리뷰 썸네일 이미지 출력
+			$.getJSON("/product/getAttachList", {product_no : review.review_no , type : 'r'}, function(arr2){
+				if(arr2.length === 0){										
+					return;
+				}
+				
+				let str = "";
+				let obj = arr2[0];
+				
+				let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+				str += "<div class='review_img'";
+				str += "data-path='" + obj.uploadPath + "' data-uuid'" + obj.uuid + "' data-filename'" + obj.fileName + "'";
+				str += ">";
+				str += "<img src='/product/display?fileName=" + fileCallPath +"'>";
+				str += "</div>";
+				
+				str += "<div class='review'><p>"+review.member_id+"</p>"
+				str += "<p>"+review.review_title+"</p>"
+				str += "<p>"+review.review_content+"</p></div>"
+				
+				productReview.append(str);
+			});// getJSON("order/getAttachList")
 		});// foreach
 	});// getJSON("/order/getReview")
 	
@@ -71,7 +91,11 @@ $('.amount_up').click(function(){
 		$('.amount').val(amount);
 		$('.amount_down').text("다운");
 		priceNum = Number(price) * Number(amount);
-		$('.product_price').val(priceNum);
+		if(priceNum < 50000 && priceNum > 0){
+			$('.total_price').val(priceNum+2000);
+			return;
+		}
+		$('.total_price').val(priceNum);
 	}
 	if(amount == stock){
 		$('.amount_up').text("못올림");
@@ -84,7 +108,11 @@ $('.amount_down').click(function(){
 		$('.amount').val(amount);
 		$('.amount_up').text("업업");
 		priceNum = Number(price) * Number(amount);
-		$('.product_price').val(priceNum);
+		if(priceNum < 50000 && priceNum > 0){
+			$('.total_price').val(priceNum+2000);
+			return;
+		}
+		$('.total_price').val(priceNum);
 	}
 	if(amount == 0){
 		$('.amount_down').text("못내림");

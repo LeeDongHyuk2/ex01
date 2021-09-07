@@ -44,8 +44,7 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService pservice;
-	@Autowired
-	private ProductMapper mapper;
+
 	/* 첨부 파일 업로드 */
 	@PostMapping(value = "/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<AttachImageVO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
@@ -195,10 +194,10 @@ public class ProductController {
 	
 	// 이미지 정보 반환
 	@GetMapping(value ="/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<AttachImageVO>> getAttachList(int product_no){
+	public ResponseEntity<List<AttachImageVO>> getAttachList(int product_no, String type){
 		logger.info("getAttachList ....... " + product_no);
 		
-		return new ResponseEntity<List<AttachImageVO>>(mapper.getAttachList(product_no), HttpStatus.OK);
+		return new ResponseEntity<List<AttachImageVO>>(pservice.getAttachList(product_no, type), HttpStatus.OK);
 	}
 	
 	// 상품 조회 페이지

@@ -11,6 +11,7 @@ $(document).ready(function(){
     getList(news);
     getList(hot);
     getList(sail);
+    getReview();
 })
 
 // 이벤트 목록 클릭하면 바뀌기
@@ -33,7 +34,7 @@ function getList(list){
 	$.getJSON("get"+list+"List",function(arr){
 		let str = "";		
 		$(arr).each(function(i,product){
-			$.getJSON("/product/getAttachList", {product_no : product.product_no}, function(img_arr){
+			$.getJSON("/product/getAttachList", {product_no : product.product_no, type : 'p'}, function(img_arr){
 				if(img_arr.length === 0){
 					
 					str += "<li><a href='/product/productDetail/"+product.product_no+"'>"
@@ -59,4 +60,43 @@ function getList(list){
 			})
 		})
 	})
+}
+
+// 리뷰 리스트 index화면에 출력
+function getReview(){
+	let reviewList = $(".review ul");
+	$.getJSON("/order/getIndexReview",function(arr){
+		let str = "";
+		$(arr).each(function(i,review){
+			
+			if(arr.length == 0){
+				str += "<li>리뷰가 없습니다</li>";
+				reviewList.append(str);
+				
+				return
+			}
+			$.getJSON("/product/getAttachList", {product_no : review.review_no , type : 'r'}, function(arr2){
+				if(arr2.length === 0){										
+					return;
+				}				
+				let obj = arr2[0];
+				
+				let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+				str += "<li><a href='/product/productDetail/"+review.product_no+"'>";
+				str += "<div class='review_img'";
+				str += "data-path='" + obj.uploadPath + "' data-uuid'" + obj.uuisd + "' data-filename'" + obj.fileName + "'";
+				str += ">";
+				str += "<img src='/product/display?fileName=" + fileCallPath +"'>";
+				str += "</div>";
+				
+				str += "<div class='review_content'>";
+				str += "<h3>"+review.review_title+"</h3>";
+				str += "<p>"+review.review_content+"</p></div>";
+				str += "</a></li>";
+				reviewList.append(str);
+			});// getJSON("order/getAttachList")
+			
+		})// 반복문 종료
+		
+	})// getJSON
 }

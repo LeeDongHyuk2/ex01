@@ -32,9 +32,17 @@
 		VALUES (#{product_no}, #{fileName}, #{uploadPath}, #{uuid}, 'r')
 	</insert>
 	
+	<!-- 제품 상세 페이지 리뷰리스트 select -->
 	<select id="getReview" resultType="com.ex01.domain.ReviewVO">
 		SELECT *
 		FROM review
 		WHERE product_no = #{product_no};
+	</select>
+	
+	<!-- index페이지 리뷰리스트 select  -->
+	<select id="getIndexReview" resultType="com.ex01.domain.ReviewVO">
+		SELECT *
+		FROM review
+		 LIMIT 3;
 	</select>
 </mapper>

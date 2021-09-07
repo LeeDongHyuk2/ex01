@@ -3,6 +3,7 @@ package com.ex01.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,10 +62,10 @@ public class ProductServiceImpl implements ProductService {
 	}
 	// 이미지 데이터 반환
 	@Override
-	public List<AttachImageVO> getAttachList(int product_no) {
+	public List<AttachImageVO> getAttachList(@Param("product_no") int product_no, @Param("type") String type) {
 		logger.info("getAttachList......");
 				
-		return mapper.getAttachList(product_no);
+		return mapper.getAttachList(product_no, type);
 	}
 	// 상품 조회 페이지
 	@Override

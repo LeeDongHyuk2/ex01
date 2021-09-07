@@ -50,7 +50,7 @@
 	<select id = "getAttachList" resultType = "com.ex01.domain.AttachImageVO">
 		SELECT * 
 		FROM product_img
-		WHERE product_no = #{product_no};
+		WHERE product_no = #{product_no} &amp;&amp; type = #{type};
 	</select>
 	
 	<!-- 상품 조회 페이지 -->

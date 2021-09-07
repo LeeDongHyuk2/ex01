@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,9 +38,10 @@ public class OrderController {
 	private OrderService oservice;
 	// 제품 주문 페이지	
 	@PostMapping("product")
-	public String postOrderPage(int product_no, Model model){
-		logger.info("getOrderPage(product_no) : " + product_no);
-
+	public String postOrderPage(int product_no,int total_price, int amount, Model model){
+		logger.info("getOrderPage(product_no, total_price) : " + product_no +", "+total_price+", "+amount);
+		model.addAttribute("order_price", total_price);
+		model.addAttribute("order_stock", amount);
 		model.addAttribute("productInfo", pservice.productGetDetail(product_no));
 		logger.info("product : " + pservice.productGetDetail(product_no));
 		return "order";
@@ -95,5 +95,11 @@ public class OrderController {
 	public ResponseEntity<ArrayList<ReviewVO>> getReview(int product_no){
 		logger.info("getReview.....");
 		return new ResponseEntity<>(oservice.getReview(product_no), HttpStatus.OK);
-	}	
+	}
+	// 
+	@GetMapping("getIndexReview")
+	public ResponseEntity<ArrayList<ReviewVO>> getIndexReview(){
+		logger.info("getIndexReview");
+		return new ResponseEntity<>(oservice.getIndexReview(), HttpStatus.OK);
+	}
 }

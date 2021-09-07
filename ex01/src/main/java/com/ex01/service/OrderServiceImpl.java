@@ -18,17 +18,19 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderMapper omapper;
 	
+	// 주문 등록
 	@Override
 	public void insertOrder(OrderVO order) {
 		logger.info("order : " + order);
 		omapper.insertOrder(order);		
 	}
-	
+	// my페이지 주문 리스트
 	@Override
 	public ArrayList<OrderVO> getMyProduct(String member_id) {
 		logger.info("member_id : " + member_id);
 		return omapper.getMyProduct(member_id);
 	}
+	// 리뷰 등록
 	@Override
 	public void reviewRegister(ReviewVO review) throws Exception {
 		omapper.reviewRegister(review);
@@ -41,10 +43,17 @@ public class OrderServiceImpl implements OrderService {
 			omapper.rimgRegister(attach);
 		});
 	}
-
+	
+	// 제품 상세 페이지 리뷰리스트
 	@Override
 	public ArrayList<ReviewVO> getReview(int product_no) {		
 		return omapper.getReview(product_no);
+	}
+	
+	// index페이지 리뷰리스트
+	@Override
+	public ArrayList<ReviewVO> getIndexReview() {
+		return omapper.getIndexReview();
 	}
 	
 }

@@ -18,7 +18,7 @@ public interface ProductService {
 	// 제품 등록
 	public void productResgister(ProductVO product);
 	// 이미지 데이터 반환
-	public List<AttachImageVO> getAttachList(int product_no);	
+	public List<AttachImageVO> getAttachList(int product_no, String type);	
 	// 상품 조회 페이지
 	public ProductVO productGetDetail(int product_no);
 }
