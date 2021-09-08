@@ -13,6 +13,7 @@ import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,9 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService pservice;
+	
+	@Autowired
+	private ProductMapper pmapper;
 
 	/* 첨부 파일 업로드 */
 	@PostMapping(value = "/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -208,5 +212,5 @@ public class ProductController {
 		model.addAttribute("productInfo", pservice.productGetDetail(product_no));
 		return "productDetail";
 	}
-
+	
 }

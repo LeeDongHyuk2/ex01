@@ -18,15 +18,40 @@
 #result_card{
 	border :1px rgb(244,204,121) solid;
 	padding:25px;
+	position: relative;
 }
 #product_cont{
 	width:40%;
 	margin-left:20px;
 }
-
+.discount_icon{
+    font-size:30px;
+    line-height: 80px;
+    text-align: center;
+    display: block;
+    width:80px;
+    height:80px;
+    position:absolute;
+    right:-40px;
+    top:-40px;
+    background-color: rgb(255, 128, 9);
+    color : white;
+    font-weight:bold;
+    border-radius: 50%;
+}
 .title{
 	height:50px;
 	border-bottom:1px #bbb solid;
+	display: flex;
+	justify-content: space-between;
+}
+.product_like{
+	background-image: url(/resources/img/like.png);
+	text-indent: -99999px;
+	width:50px;
+	height:50px;
+	background-size:120px;
+	background-position: 60px -20px;
 }
 .price{
 	height:60px;

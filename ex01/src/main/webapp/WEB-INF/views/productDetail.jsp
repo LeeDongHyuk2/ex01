@@ -22,6 +22,7 @@
 					<ul>
 						<li class="title">
 							<h2>${productInfo.product_name }</h2>
+							<p class="product_like">좋아요</p>
 						</li><!-- .product_title -->
 						<li class="price">
 							<c:if test="${productInfo.product_discount != 0 }">

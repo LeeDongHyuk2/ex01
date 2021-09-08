@@ -43,6 +43,6 @@
 	<select id="getIndexReview" resultType="com.ex01.domain.ReviewVO">
 		SELECT *
 		FROM review
-		 LIMIT 3;
+		LIMIT 3;
 	</select>
 </mapper>

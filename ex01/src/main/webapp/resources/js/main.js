@@ -35,24 +35,35 @@ function getList(list){
 		let str = "";		
 		$(arr).each(function(i,product){
 			$.getJSON("/product/getAttachList", {product_no : product.product_no, type : 'p'}, function(img_arr){
-				if(img_arr.length === 0){
-					
+				if(img_arr.length === 0){					
 					str += "<li><a href='/product/productDetail/"+product.product_no+"'>"
 					str += "<img src='/resources/img/productNoImage.png'>"
+					if(product.product_discount > 0){
+						str+= "<p class='discount'>"+product.product_discount+" %</p>"						
+					}
 					str += "<p class='item_name'>"+product.product_name+"</p>"
-					str += "<p class='item_price'>"+product.product_price+"</p>"
+					if(product.product_discount > 0){
+						str+="<p class='real_price'>"+product.product_price+"</p>";
+					}
+					str += "<p class='item_price'>"+(product.product_price/100)*(100-product.product_discount)+"</p>"
 					str += "<p class='item_memo'>"+product.product_memo+"</p>"
 					str += "</a></li>"		
 						
-				}else{				
+				}else{
 					let obj = img_arr[0];
 					let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
 					
-					str += "<li><a href='/product/productDetail/"+product.product_no+"'>"
-					str += "<img src='/product/display?fileName="+ fileCallPath +"'>"
-					str += "<p class='item_name'>"+product.product_name+"</p>"
-					str += "<p class='item_price'>"+product.product_price+"</p>"
-					str += "<p class='item_memo'>"+product.product_memo+"</p>"
+					str += "<li><a href='/product/productDetail/"+product.product_no+"'>";
+					str += "<img src='/product/display?fileName="+ fileCallPath +"'>";
+					if(product.product_discount > 0){
+						str+= "<p class='discount'>"+product.product_discount+" %</p>";
+					}
+					str += "<p class='item_name'>"+product.product_name+"</p>";
+					if(product.product_discount > 0){
+						str+="<p class='real_price'>"+product.product_price+"</p>";
+					}
+					str += "<p class='item_price'>"+(product.product_price/100)*(100-product.product_discount)+"</p>";
+					str += "<p class='item_memo'>"+product.product_memo+"</p>";
 					str += "</a></li>"						
 				}
 				$(".list"+list+"Item ul").append(str);
@@ -67,6 +78,7 @@ function getReview(){
 	let reviewList = $(".review ul");
 	$.getJSON("/order/getIndexReview",function(arr){
 		let str = "";
+		console.log(arr);
 		$(arr).each(function(i,review){
 			
 			if(arr.length == 0){
@@ -74,7 +86,8 @@ function getReview(){
 				reviewList.append(str);
 				
 				return
-			}
+			}					
+			
 			$.getJSON("/product/getAttachList", {product_no : review.review_no , type : 'r'}, function(arr2){
 				if(arr2.length === 0){										
 					return;
@@ -83,20 +96,19 @@ function getReview(){
 				
 				let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
 				str += "<li><a href='/product/productDetail/"+review.product_no+"'>";
-				str += "<div class='review_img'";
+				str += "<div class='review_img'";	
 				str += "data-path='" + obj.uploadPath + "' data-uuid'" + obj.uuisd + "' data-filename'" + obj.fileName + "'";
 				str += ">";
 				str += "<img src='/product/display?fileName=" + fileCallPath +"'>";
 				str += "</div>";
-				
 				str += "<div class='review_content'>";
 				str += "<h3>"+review.review_title+"</h3>";
 				str += "<p>"+review.review_content+"</p></div>";
 				str += "</a></li>";
 				reviewList.append(str);
+				str = "";
+				
 			});// getJSON("order/getAttachList")
-			
-		})// 반복문 종료
-		
+		})// 반복문 종료		
 	})// getJSON
 }

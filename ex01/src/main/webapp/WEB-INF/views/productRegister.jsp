@@ -39,7 +39,11 @@
 		<div>
 			<label>제품 재고</label>
 			<input name="product_stock">
-		</div>		
+		</div>
+		<div>
+			<label>제품 할인율</label>
+			<input name="product_discount" value="0">
+		</div>	
 		<div>
 			<label>상품 이미지</label>
 		</div>

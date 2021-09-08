@@ -1,7 +1,11 @@
 /**
  * 
  */
-
+let nameCheck = false;
+let priceCheck = false;
+let memoCheck = false;
+let stockCheck = false;
+let discountCheck = false;
 
 $(document).ready(function(){	
 let regex = new RegExp("(.*?)\.(jpg|png)$");
@@ -16,7 +20,49 @@ let registerForm = $("#productRegister");
 	// 상품 등록 버튼	
 	$("#registerBtn").on("click", function(e){
 		e.preventDefault();
-		registerForm.submit();
+		
+		let name = $('.product_name').val();
+		let price = $('.product_price').val();
+		let memo = $('.product_memo').val();
+		let stock = $('.product_stock').val();
+		let discount = $('.product_discount').val();
+				
+		if(name == ""){
+			nameCheck = false;
+		}else {
+			nameCheck = true;
+		}
+		
+		if(price == ""){
+			priceCheck = false;
+		}else {
+			priceCheck = true;
+		}
+		
+		if(memo == ""){
+			memoCheck = false;
+		}else {
+			memoCheck = true;
+		}
+		
+		
+		if(stock == ""){
+			stockCheck = false;
+		}else {
+			stockCheck = true;
+		}
+		
+		
+		if(discount == ""){
+			discountCheck = false;
+		}else {
+			discountCheck = true;
+		}
+		if(nameCheck&&priceCheck&&memoCheck&&stockCheck&&discountCheck){
+			registerForm.submit();
+		}else{
+			alert("모든 항목을 입력해 주세요.");
+		}
 	})
 	
 	$("input[type='file']").on("change", function(e){

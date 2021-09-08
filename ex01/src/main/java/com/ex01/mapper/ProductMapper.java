@@ -24,5 +24,5 @@ public interface ProductMapper {
 	// 이미지 데이터 반환
 	public List<AttachImageVO> getAttachList(@Param("product_no")int product_no, @Param("type")String type);
 	// 상품 조회
-	public ProductVO productGetDetail(int product_no);
+	public ProductVO productGetDetail(int product_no);	
 }

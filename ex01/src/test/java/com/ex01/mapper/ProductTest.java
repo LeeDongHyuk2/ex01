@@ -19,18 +19,18 @@ public class ProductTest {
 	public void productRegisterTest() throws Exception{
 		ProductVO product = new ProductVO();
 		
-		product.setProduct_name("의자");
+		product.setProduct_name("�쓽�옄");
 		product.setProduct_price(50000);
 		product.setProduct_stock(100);
-		product.setMember_id("이동혁");
-		product.setProduct_memo("좋은 의자입니다.");
+		product.setMember_id("�씠�룞�쁺");
+		product.setProduct_memo("醫뗭� �쓽�옄�엯�땲�떎.");
 		product.setProduct_category("chair");
 		
 		
 		//mapper.productRegister(product);
 	}
 	
-	// 이미지 등록
+	// �씠誘몄� �벑濡�
 	@Test
 	public void imageRegisterTest() {
 		AttachImageVO vo = new AttachImageVO();
@@ -46,14 +46,14 @@ public class ProductTest {
 	@Test
 	public void getAttachListTests() {
 		int product_no = 8;
-		System.out.println("이미지 정보 : " + mapper.getAttachList(product_no));
+		// System.out.println("�씠誘몄� �젙蹂� : " + mapper.getAttachList(product_no, ));
 	}
 	
-	// 상품 조회
+	// �긽�뭹 議고쉶
 	@Test
 	public void productGetDetailTest() {
 		int product_no = 2;
 		
-		System.out.println("상품 조회 데이터 : " + mapper.productGetDetail(product_no));
+		System.out.println("�긽�뭹 議고쉶 �뜲�씠�꽣 : " + mapper.productGetDetail(product_no));
 	}
 }

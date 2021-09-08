@@ -6,11 +6,15 @@ $(document).ready(function(){
 	let product_no = $("input[type='hidden']").val();
 	let uploadResult = $("#uploadResult");
 	let productReview =$("#product_review");
-	
+	let discount = $(".discount").text();
+
 	$.getJSON("/product/getAttachList", {product_no : product_no, type : 'p'}, function(arr){
 		if(arr.length === 0){
 			let str = "";
 			str += "<div id = 'result_card'>";
+			if(discount > 0){
+				str+= "<p class='discount_icon'>"+discount+" %</p>";					
+			}
 			str += "<input type='hidden' value='"+product_no+"' name='product_no'>"
 			str += "<img src = '/resources/img/productNoImage.png'>";
 			str += "</div>";
@@ -24,9 +28,12 @@ $(document).ready(function(){
 		let obj = arr[0];
 		
 		let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
-		str += "<div id='result_card'";			
+		str += "<div id='result_card'";	
 		str += "data-path='" + obj.uploadPath + "' data-uuid'" + obj.uuid + "' data-filename'" + obj.fileName + "'";
 		str += ">";
+		if(discount > 0){
+			str+= "<p class='discount_icon'>"+discount+" %</p>";						
+		}
 		str += "<input type='hidden' value='"+product_no+"' name='product_no'>";
 		str += "<img src='/product/display?fileName=" + fileCallPath +"'>";
 		str += "</div>";
@@ -75,7 +82,6 @@ $(document).ready(function(){
 			});// getJSON("order/getAttachList")
 		});// foreach
 	});// getJSON("/order/getReview")
-	
 });
 
 let amount = $('.amount').val();
@@ -118,3 +124,14 @@ $('.amount_down').click(function(){
 		$('.amount_down').text("못내림");
 	}
 });
+let check = false;
+$('.product_like').click(function(){
+	if(!check){
+		$('.product_like').css("background-position", "-10px -21px");
+		check = true;
+	}else {
+		$('.product_like').css("background-position", "60px -20px");
+		check = false;
+	}
+	
+})

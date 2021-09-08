@@ -31,7 +31,11 @@
     position:absolute;
     bottom:20px;
 }
-
+.real_price{
+	font-size:13px;
+	text-decoration: line-through;
+	color:#bbb;
+}
 /* section1 .main_slide - 모바일 끝 */
 
 
@@ -53,7 +57,8 @@
     box-sizing: border-box;
     justify-content: space-between;
 }
-.newList li{
+.newList ul li{
+	position : relative;
     width: 48%;
     margin-bottom:20px;
 }
@@ -98,9 +103,9 @@
     padding: 0 10px;
     box-sizing: border-box;
     justify-content: space-between;
-
 }
-.hotList li{
+.hotList ul li{
+	position : relative;
     width: 48%;
     margin-bottom:20px;
 }
@@ -132,7 +137,7 @@
     box-sizing: border-box;
     justify-content: space-between;
 }
-.sailList li{
+.sailList ul li{
     width: 48%;
     margin-bottom:20px;
     position:relative;
@@ -144,8 +149,7 @@
     width:100%;
     height:auto;
 }
-.sailList li a::after{
-    content: "";
+.discount{
     font-size:15px;
     line-height: 50px;
     text-align: center;

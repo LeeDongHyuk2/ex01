@@ -10,7 +10,7 @@ let pwdckCorCheck = false;
 let nameCheck = false;
 let mailCheck = false;
 let addressCheck = false;
-let phoneCheck = false;
+let phoneCheck = false;0
 let emailFormCheck = false;
 
 $(document).ready(function(){
